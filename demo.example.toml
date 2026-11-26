@@ -1,0 +1,22 @@
+# Kraken 2.0 demo settings. Copy to demo.toml; paths are relative to this file.
+
+# Retrievr's own settings (LLM endpoint, models, browser). On the work PC, point to the
+# file Kraken 2.0 uses, so that the recipes it installed are found.
+retrievr_config = "retrievr.toml"
+
+# Override Retrievr's state and output folders (comment out to keep retrievr_config's).
+state_dir = "state"
+output_dir = "downloads"
+
+# KEY=VALUE file loaded at start (the LLM key when no adapter gives the AI transport).
+# env_file = ".env"
+
+port = 8765
+open_browser = true
+fresh_ai_on_learn = true      # Re-learn calls the AI for real, never its response cache
+adapter = ""                  # e.g. "kraken.demo_adapter:create" on the work PC
+ai_name = "SecureGPT"
+
+[cost]                        # fixed prices for every cost shown, EUR per million tokens
+input_per_million = 0.10
+output_per_million = 0.40

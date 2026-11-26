@@ -1,0 +1,367 @@
+{
+ "row": {
+  "id": "airbus",
+  "name": "Airbus",
+  "url": "https://www.airbus.com/en/investors/annual-reports",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "annual reports, half-year reports, financial statements",
+  "force_learn": false,
+  "line": 7
+ },
+ "kind": "learn",
+ "recorded": "2026-11-26 18:12",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "airbus",
+    "name": "Airbus",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "site",
+    "url": "https://www.airbus.com/en/investors/annual-reports",
+    "request": "annual reports, half-year reports, financial statements"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "known",
+    "known": false,
+    "relearn": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "learn"
+   }
+  },
+  {
+   "dt": 1.0,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 1
+   }
+  },
+  {
+   "dt": 1.297,
+   "event": {
+    "type": "ai_start",
+    "row": "airbus",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 7.016,
+   "event": {
+    "type": "ai_end",
+    "row": "airbus",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 4097,
+    "output_tokens": 666,
+    "cost": 0.0006761000000000001
+   }
+  },
+  {
+   "dt": 7.016,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 2
+   }
+  },
+  {
+   "dt": 7.157,
+   "event": {
+    "type": "ai_start",
+    "row": "airbus",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 30.938,
+   "event": {
+    "type": "ai_end",
+    "row": "airbus",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 8113,
+    "output_tokens": 3964,
+    "cost": 0.0023969
+   }
+  },
+  {
+   "dt": 30.953,
+   "event": {
+    "type": "ai_start",
+    "row": "airbus",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 61.203,
+   "event": {
+    "type": "ai_end",
+    "row": "airbus",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 11113,
+    "output_tokens": 4994,
+    "cost": 0.0031089
+   }
+  },
+  {
+   "dt": 61.219,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 3
+   }
+  },
+  {
+   "dt": 62.219,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 4
+   }
+  },
+  {
+   "dt": 62.391,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 5
+   }
+  },
+  {
+   "dt": 63.219,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 6
+   }
+  },
+  {
+   "dt": 64.219,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 7
+   }
+  },
+  {
+   "dt": 64.391,
+   "event": {
+    "type": "ai_start",
+    "row": "airbus",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 67.078,
+   "event": {
+    "type": "ai_end",
+    "row": "airbus",
+    "link": "a1",
+    "step": "filter",
+    "cached": false,
+    "input_tokens": 1339,
+    "output_tokens": 70,
+    "cost": 0.0001619
+   }
+  },
+  {
+   "dt": 67.094,
+   "event": {
+    "type": "pages",
+    "row": "airbus",
+    "n": 8
+   }
+  },
+  {
+   "dt": 67.282,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "read",
+    "pages": 8,
+    "found": 255
+   }
+  },
+  {
+   "dt": 67.282,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "health",
+    "verdict": "baseline"
+   }
+  },
+  {
+   "dt": 67.282,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 67.282,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 67.282,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 1,
+    "total": 8,
+    "status": "downloaded",
+    "label": "Annual report 2025 FY"
+   }
+  },
+  {
+   "dt": 67.297,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 2,
+    "total": 8,
+    "status": "rejected",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 68.391,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 3,
+    "total": 8,
+    "status": "downloaded",
+    "label": "Financial statements 2025 FY"
+   }
+  },
+  {
+   "dt": 69.391,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 4,
+    "total": 8,
+    "status": "downloaded",
+    "label": "Financial statements 2024 FY"
+   }
+  },
+  {
+   "dt": 70.688,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 5,
+    "total": 8,
+    "status": "downloaded",
+    "label": "Annual report 2024 FY"
+   }
+  },
+  {
+   "dt": 71.735,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 6,
+    "total": 8,
+    "status": "downloaded",
+    "label": "Annual report 2024 FY ec7a49c4"
+   }
+  },
+  {
+   "dt": 72.5,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 7,
+    "total": 8,
+    "status": "downloaded",
+    "label": "Annual report 2024 FY aca9c28e"
+   }
+  },
+  {
+   "dt": 73.297,
+   "event": {
+    "type": "doc",
+    "row": "airbus",
+    "index": 8,
+    "total": 8,
+    "status": "rejected",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 73.313,
+   "event": {
+    "type": "step",
+    "row": "airbus",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 73.313,
+   "event": {
+    "type": "run_end",
+    "row": "airbus",
+    "result": {
+     "status_label": "Learned",
+     "recipe_label": "Learned",
+     "found": 8,
+     "files": 6,
+     "new": 6,
+     "ai_calls": 4,
+     "tokens": 34356,
+     "cost": 0.006344,
+     "seconds": 73.3,
+     "health_label": "New recipe",
+     "at": "2026-11-26 18:12",
+     "notes": "",
+     "pages": 8
+    }
+   }
+  }
+ ]
+}

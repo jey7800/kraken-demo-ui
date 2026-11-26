@@ -1,0 +1,1078 @@
+{
+ "row": {
+  "id": "hsbc",
+  "name": "HSBC",
+  "url": "https://www.hsbc.com/investors/results-and-announcements",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "annual report, interim report, results",
+  "force_learn": false,
+  "line": 8
+ },
+ "kind": "learn",
+ "recorded": "2026-11-26 18:04",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "hsbc",
+    "name": "HSBC",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "site",
+    "url": "https://www.hsbc.com/investors/results-and-announcements",
+    "request": "annual report, interim report, results"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "known",
+    "known": false,
+    "relearn": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "learn"
+   }
+  },
+  {
+   "dt": 1.0,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 1
+   }
+  },
+  {
+   "dt": 1.188,
+   "event": {
+    "type": "ai_start",
+    "row": "hsbc",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 2.672,
+   "event": {
+    "type": "ai_end",
+    "row": "hsbc",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 3544,
+    "output_tokens": 110,
+    "cost": 0.00039840000000000003
+   }
+  },
+  {
+   "dt": 2.672,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 2
+   }
+  },
+  {
+   "dt": 3.047,
+   "event": {
+    "type": "ai_start",
+    "row": "hsbc",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 9.875,
+   "event": {
+    "type": "ai_end",
+    "row": "hsbc",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 8194,
+    "output_tokens": 847,
+    "cost": 0.0011582
+   }
+  },
+  {
+   "dt": 9.875,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 3
+   }
+  },
+  {
+   "dt": 10.078,
+   "event": {
+    "type": "ai_start",
+    "row": "hsbc",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 51.281,
+   "event": {
+    "type": "ai_end",
+    "row": "hsbc",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 15760,
+    "output_tokens": 6868,
+    "cost": 0.004323200000000001
+   }
+  },
+  {
+   "dt": 51.313,
+   "event": {
+    "type": "ai_start",
+    "row": "hsbc",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 75.281,
+   "event": {
+    "type": "ai_end",
+    "row": "hsbc",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 19662,
+    "output_tokens": 3555,
+    "cost": 0.0033881999999999996
+   }
+  },
+  {
+   "dt": 75.281,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 4
+   }
+  },
+  {
+   "dt": 76.281,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 5
+   }
+  },
+  {
+   "dt": 77.281,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 6
+   }
+  },
+  {
+   "dt": 78.281,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 7
+   }
+  },
+  {
+   "dt": 79.281,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 8
+   }
+  },
+  {
+   "dt": 79.484,
+   "event": {
+    "type": "ai_start",
+    "row": "hsbc",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 82.563,
+   "event": {
+    "type": "ai_end",
+    "row": "hsbc",
+    "link": "a1",
+    "step": "filter",
+    "cached": false,
+    "input_tokens": 1337,
+    "output_tokens": 147,
+    "cost": 0.00019250000000000002
+   }
+  },
+  {
+   "dt": 82.578,
+   "event": {
+    "type": "pages",
+    "row": "hsbc",
+    "n": 9
+   }
+  },
+  {
+   "dt": 82.688,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "read",
+    "pages": 9,
+    "found": 169
+   }
+  },
+  {
+   "dt": 82.688,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "health",
+    "verdict": "baseline"
+   }
+  },
+  {
+   "dt": 82.688,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 82.688,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 82.688,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 1,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025"
+   }
+  },
+  {
+   "dt": 83.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 2,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2025"
+   }
+  },
+  {
+   "dt": 84.781,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 3,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2025 0ddb2c0f"
+   }
+  },
+  {
+   "dt": 85.719,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 4,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2025"
+   }
+  },
+  {
+   "dt": 86.75,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 5,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q4"
+   }
+  },
+  {
+   "dt": 87.688,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 6,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q4"
+   }
+  },
+  {
+   "dt": 88.859,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 7,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2025 Q4"
+   }
+  },
+  {
+   "dt": 90.828,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 8,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2025 Q4"
+   }
+  },
+  {
+   "dt": 90.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 9,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 zh"
+   }
+  },
+  {
+   "dt": 91.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 10,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025"
+   }
+  },
+  {
+   "dt": 92.906,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 11,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 FY"
+   }
+  },
+  {
+   "dt": 94.594,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 12,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2025 zh"
+   }
+  },
+  {
+   "dt": 95.078,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 13,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2025 zh a2bb082b"
+   }
+  },
+  {
+   "dt": 95.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 14,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 Q3"
+   }
+  },
+  {
+   "dt": 96.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 15,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q3"
+   }
+  },
+  {
+   "dt": 97.906,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 16,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q3"
+   }
+  },
+  {
+   "dt": 98.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 17,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q3"
+   }
+  },
+  {
+   "dt": 99.922,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 18,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q3"
+   }
+  },
+  {
+   "dt": 100.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 19,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 Q3 zh"
+   }
+  },
+  {
+   "dt": 101.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 20,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2025 Q3"
+   }
+  },
+  {
+   "dt": 102.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 21,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q3 74e7c800"
+   }
+  },
+  {
+   "dt": 103.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 22,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 4acf9b2c"
+   }
+  },
+  {
+   "dt": 105.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 23,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 a22e25cc"
+   }
+  },
+  {
+   "dt": 106.094,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 24,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2025"
+   }
+  },
+  {
+   "dt": 106.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 25,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2025 e276b77e"
+   }
+  },
+  {
+   "dt": 107.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 26,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q2"
+   }
+  },
+  {
+   "dt": 108.922,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 27,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q2"
+   }
+  },
+  {
+   "dt": 110.016,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 28,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 zh a30984b5"
+   }
+  },
+  {
+   "dt": 111.047,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 29,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2025 Q2"
+   }
+  },
+  {
+   "dt": 112.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 30,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2025 Q2"
+   }
+  },
+  {
+   "dt": 112.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 31,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 7834dcd0"
+   }
+  },
+  {
+   "dt": 114.109,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 32,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2025 zh"
+   }
+  },
+  {
+   "dt": 114.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 33,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 Q1"
+   }
+  },
+  {
+   "dt": 115.922,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 34,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q1"
+   }
+  },
+  {
+   "dt": 116.906,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 35,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q1"
+   }
+  },
+  {
+   "dt": 117.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 36,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q1"
+   }
+  },
+  {
+   "dt": 118.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 37,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q1"
+   }
+  },
+  {
+   "dt": 119.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 38,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2025 Q1 zh"
+   }
+  },
+  {
+   "dt": 121.016,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 39,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2025 Q1"
+   }
+  },
+  {
+   "dt": 121.922,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 40,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2024"
+   }
+  },
+  {
+   "dt": 123.109,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 41,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2024"
+   }
+  },
+  {
+   "dt": 124.078,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 42,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2024 210a880b"
+   }
+  },
+  {
+   "dt": 124.984,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 43,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2024"
+   }
+  },
+  {
+   "dt": 125.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 44,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q4"
+   }
+  },
+  {
+   "dt": 127.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 45,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q4"
+   }
+  },
+  {
+   "dt": 128.203,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 46,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2024 Q4"
+   }
+  },
+  {
+   "dt": 129.844,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 47,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2024 Q4"
+   }
+  },
+  {
+   "dt": 129.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 48,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024"
+   }
+  },
+  {
+   "dt": 131.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 49,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2024 zh"
+   }
+  },
+  {
+   "dt": 131.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 50,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 FY"
+   }
+  },
+  {
+   "dt": 133.063,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 51,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2024 zh"
+   }
+  },
+  {
+   "dt": 134.641,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 52,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Annual report 2024 zh e7da73c4"
+   }
+  },
+  {
+   "dt": 134.984,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 53,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2024 Q3"
+   }
+  },
+  {
+   "dt": 135.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 54,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q3"
+   }
+  },
+  {
+   "dt": 136.922,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 55,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q3"
+   }
+  },
+  {
+   "dt": 137.984,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 56,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q3"
+   }
+  },
+  {
+   "dt": 139.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 57,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q3"
+   }
+  },
+  {
+   "dt": 139.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 58,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2024 Q3 zh"
+   }
+  },
+  {
+   "dt": 140.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 59,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2024 Q3"
+   }
+  },
+  {
+   "dt": 142.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 60,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2024 7adc7934"
+   }
+  },
+  {
+   "dt": 143.016,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 61,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2024"
+   }
+  },
+  {
+   "dt": 143.969,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 62,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Results presentation 2024 29a79a02"
+   }
+  },
+  {
+   "dt": 144.922,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 63,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q2"
+   }
+  },
+  {
+   "dt": 145.938,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 64,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q2"
+   }
+  },
+  {
+   "dt": 147.0,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 65,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Press release 2024 zh 2328aa99"
+   }
+  },
+  {
+   "dt": 148.063,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 66,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2024 Q2"
+   }
+  },
+  {
+   "dt": 149.375,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 67,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2024 Q2"
+   }
+  },
+  {
+   "dt": 149.984,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 68,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 1d4f4bf6"
+   }
+  },
+  {
+   "dt": 150.953,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 69,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 69fb4804"
+   }
+  },
+  {
+   "dt": 152.219,
+   "event": {
+    "type": "doc",
+    "row": "hsbc",
+    "index": 70,
+    "total": 70,
+    "status": "downloaded",
+    "label": "Half year report 2024 zh"
+   }
+  },
+  {
+   "dt": 152.219,
+   "event": {
+    "type": "step",
+    "row": "hsbc",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 152.219,
+   "event": {
+    "type": "run_end",
+    "row": "hsbc",
+    "result": {
+     "status_label": "Learned",
+     "recipe_label": "Learned",
+     "found": 70,
+     "files": 70,
+     "new": 70,
+     "ai_calls": 5,
+     "tokens": 60024,
+     "cost": 0.009461,
+     "seconds": 152.2,
+     "health_label": "New recipe",
+     "at": "2026-11-26 18:04",
+     "notes": "",
+     "pages": 9
+    }
+   }
+  }
+ ]
+}

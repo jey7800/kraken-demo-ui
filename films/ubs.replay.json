@@ -1,0 +1,244 @@
+{
+ "row": {
+  "id": "ubs",
+  "name": "UBS",
+  "url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting/qr-archive/qr-archive21-25.html",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "quarterly reports, annual report",
+  "force_learn": false,
+  "line": 6
+ },
+ "kind": "replay",
+ "recorded": "2026-11-26 17:57",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "ubs",
+    "name": "UBS",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "site",
+    "url": "https://www.ubs.com/global/en/investor-relations/financial-information/quarterly-reporting/qr-archive/qr-archive21-25.html",
+    "request": "quarterly reports, annual report"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "known",
+    "known": true,
+    "relearn": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "replay"
+   }
+  },
+  {
+   "dt": 1.016,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "read",
+    "pages": 1
+   }
+  },
+  {
+   "dt": 1.016,
+   "event": {
+    "type": "pages",
+    "row": "ubs",
+    "n": 1
+   }
+  },
+  {
+   "dt": 3.469,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "health",
+    "verdict": "ok"
+   }
+  },
+  {
+   "dt": 3.469,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 3.469,
+   "event": {
+    "type": "ai_start",
+    "row": "ubs",
+    "link": "a3"
+   }
+  },
+  {
+   "dt": 5.594,
+   "event": {
+    "type": "ai_end",
+    "row": "ubs",
+    "link": "a3",
+    "step": "filter",
+    "cached": false,
+    "input_tokens": 1335,
+    "output_tokens": 68,
+    "cost": 0.00016069999999999998
+   }
+  },
+  {
+   "dt": 5.61,
+   "event": {
+    "type": "pages",
+    "row": "ubs",
+    "n": 2
+   }
+  },
+  {
+   "dt": 5.704,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 5.704,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 1,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q4"
+   }
+  },
+  {
+   "dt": 6.688,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 2,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q3"
+   }
+  },
+  {
+   "dt": 8.282,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 3,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q3 817d64b0"
+   }
+  },
+  {
+   "dt": 9.0,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 4,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q2"
+   }
+  },
+  {
+   "dt": 9.688,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 5,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q2 cd09f6ca"
+   }
+  },
+  {
+   "dt": 10.688,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 6,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q1"
+   }
+  },
+  {
+   "dt": 11.688,
+   "event": {
+    "type": "doc",
+    "row": "ubs",
+    "index": 7,
+    "total": 7,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q1 fbb7ca7c"
+   }
+  },
+  {
+   "dt": 11.688,
+   "event": {
+    "type": "step",
+    "row": "ubs",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 11.688,
+   "event": {
+    "type": "run_end",
+    "row": "ubs",
+    "result": {
+     "status_label": "Done",
+     "recipe_label": "Known",
+     "found": 7,
+     "files": 7,
+     "new": 7,
+     "ai_calls": 1,
+     "tokens": 1403,
+     "cost": 0.000161,
+     "seconds": 11.7,
+     "health_label": "Good",
+     "at": "2026-11-26 17:57",
+     "notes": "",
+     "pages": 2
+    }
+   }
+  }
+ ]
+}

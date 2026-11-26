@@ -1,0 +1,470 @@
+{
+ "row": {
+  "id": "societe-generale",
+  "name": "Société Générale",
+  "url": "https://investors.societegenerale.com/fr/base-documentaire?theme=finance&category[resultats-financiers]&fiscal[2025]",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "annual reports, half-year reports, quarterly results",
+  "force_learn": false,
+  "line": 2
+ },
+ "kind": "replay",
+ "recorded": "2026-11-26 17:54",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "societe-generale",
+    "name": "Société Générale",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "site",
+    "url": "https://investors.societegenerale.com/fr/base-documentaire?theme=finance&category[resultats-financiers]&fiscal[2025]",
+    "request": "annual reports, half-year reports, quarterly results"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.016,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "known",
+    "known": true,
+    "relearn": false
+   }
+  },
+  {
+   "dt": 0.016,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "replay"
+   }
+  },
+  {
+   "dt": 1.016,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "read",
+    "pages": 1
+   }
+  },
+  {
+   "dt": 1.016,
+   "event": {
+    "type": "pages",
+    "row": "societe-generale",
+    "n": 1
+   }
+  },
+  {
+   "dt": 2.016,
+   "event": {
+    "type": "pages",
+    "row": "societe-generale",
+    "n": 2
+   }
+  },
+  {
+   "dt": 3.016,
+   "event": {
+    "type": "pages",
+    "row": "societe-generale",
+    "n": 3
+   }
+  },
+  {
+   "dt": 4.016,
+   "event": {
+    "type": "pages",
+    "row": "societe-generale",
+    "n": 4
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "health",
+    "verdict": "ok"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 1,
+    "total": 28,
+    "status": "known_url",
+    "label": "Financial statements 2024 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 2,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2024 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 3,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2024 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 4,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2024 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 5,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2024 Q3"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 6,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2024 Q3"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 7,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2024 Q3"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 8,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2024 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 9,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2024 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 10,
+    "total": 28,
+    "status": "known_url",
+    "label": "Financial statements 2024 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 11,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2024 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 12,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2024 Q1"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 13,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2024 Q1"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 14,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2024 Q1"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 15,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2025 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 16,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2025 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 17,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2025 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 18,
+    "total": 28,
+    "status": "known_url",
+    "label": "Financial statements 2025 Q4"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 19,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2025 Q3"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 20,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2025 Q3"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 21,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2025 Q3"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 22,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2025 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 23,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2025 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 24,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2025 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 25,
+    "total": 28,
+    "status": "known_url",
+    "label": "Financial statements 2025 Q2"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 26,
+    "total": 28,
+    "status": "known_url",
+    "label": "Results presentation 2025 Q1"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 27,
+    "total": 28,
+    "status": "known_url",
+    "label": "Quarterly series 2025 Q1"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "doc",
+    "row": "societe-generale",
+    "index": 28,
+    "total": 28,
+    "status": "known_url",
+    "label": "Press release 2025 Q1"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "step",
+    "row": "societe-generale",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 4.047,
+   "event": {
+    "type": "run_end",
+    "row": "societe-generale",
+    "result": {
+     "status_label": "Done",
+     "recipe_label": "Known",
+     "found": 28,
+     "files": 28,
+     "new": 0,
+     "ai_calls": 0,
+     "tokens": 0,
+     "cost": 0.0,
+     "seconds": 4.0,
+     "health_label": "Good",
+     "at": "2026-11-26 17:54",
+     "notes": "",
+     "pages": 4
+    }
+   }
+  }
+ ]
+}

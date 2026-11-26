@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kraken 2.0 mission control</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<svg id="contours" aria-hidden="true"></svg>
+<div class="app">
+  <header class="bar">
+    <div class="mark">
+      <!-- Placeholder logo: to be replaced by the real Kraken 2.0 logo -->
+      <svg viewBox="0 0 38 38" aria-label="Kraken 2.0 logo">
+        <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f3fd1"/><stop offset="1" stop-color="#ff1721"/></linearGradient></defs>
+        <rect x="1" y="1" width="36" height="36" rx="10" fill="url(#logoGrad)"/>
+        <circle cx="19" cy="14" r="6.5" fill="none" stroke="#fff" stroke-width="2.2"/>
+        <path d="M13 19c-2 5-5 7-7 8M17 20.5c-1 5-2 8-4 10M21 20.5c1 5 2 8 4 10M25 19c2 5 5 7 7 8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <b>Kraken</b><span>2.0</span>
+    </div>
+    <nav class="tabs" aria-label="Pages">
+      <button class="tab" data-page="mission" aria-current="page">Mission control</button>
+      <button class="tab" data-page="why">Why AI changes everything</button>
+    </nav>
+    <div class="spacer"></div>
+    <div class="conn" id="conn" title="Connection to the local server"></div>
+    <div class="speed" id="speed" title="Demo speed">Speed ×1</div>
+    <div class="mode" role="group" aria-label="Source of the runs">
+      <button aria-pressed="true" id="m-live" title="Run Kraken for real">Live</button>
+      <button aria-pressed="false" id="m-film" title="Play the last recorded run, no network needed">Recorded run</button>
+    </div>
+    <button class="keys" id="keys">Shortcuts</button>
+  </header>
+
+  <!-- ============ Page 1: mission control ============ -->
+  <main class="page" id="page-mission">
+    <section class="stage" aria-label="What Kraken is doing now">
+      <svg id="flow" viewBox="0 0 1800 330" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Steps of a Kraken run">
+        <defs>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <linearGradient id="flowGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1800" y2="0">
+            <stop offset="0" stop-color="#4d8dff"/>
+            <stop offset=".55" stop-color="#8a6dff"/>
+            <stop offset="1" stop-color="#ff3b5c"/>
+          </linearGradient>
+          <radialGradient id="orbGrad">
+            <stop offset="0" stop-color="#ff1721" stop-opacity=".9"/>
+            <stop offset=".6" stop-color="#6b2bd9" stop-opacity=".35"/>
+            <stop offset="1" stop-color="#1f3fd1" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="coreGrad" cx=".35" cy=".3">
+            <stop offset="0" stop-color="#ff4d6d"/>
+            <stop offset=".55" stop-color="#b3123a"/>
+            <stop offset="1" stop-color="#1a0a6a"/>
+          </radialGradient>
+        </defs>
+        <g id="edges"></g>
+        <g id="fils"></g>
+        <g id="stations"></g>
+      </svg>
+      <div class="lower">
+        <div class="narr" aria-live="polite">
+          <div class="who" id="who"></div>
+          <p class="say" id="say"></p>
+          <p class="sub" id="sub"></p>
+        </div>
+        <div class="meters">
+          <div class="meter ai" id="m-calls-box"><div class="n" id="m-calls">0</div><div class="l"><span class="ainame">SecureGPT</span> calls</div></div>
+          <div class="meter ai"><div class="n" id="m-tokens">0</div><div class="l">Tokens used</div></div>
+          <div class="meter"><div class="n" id="m-cost">€0.00</div><div class="l" id="m-cost-l">AI cost</div></div>
+          <div class="meter docs"><div class="n" id="m-docs">0</div><div class="l">Documents filed</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="desk" id="desk" aria-label="Sites to collect">
+      <div class="toolbar">
+        <button class="file" id="file-chip" title="Load another parameters file">
+          <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="3" y="2" width="20" height="22" rx="3" fill="#107c41"/><path d="M8.5 8l9 10M17.5 8l-9 10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <b id="file-name">No file loaded</b><span id="file-info"></span>
+        </button>
+        <input type="file" id="file-input" accept=".xlsx,.xlsm,.csv" hidden>
+        <div class="spacer"></div>
+        <a class="btn" id="export" href="/api/export" download>Export enriched Excel</a>
+        <button class="btn primary" id="runall">Run all</button>
+      </div>
+      <div class="tablewrap" id="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Issuer</th><th>Access</th><th>Years</th><th>Requested documents</th><th>Force learning</th>
+              <th class="res">Status</th><th class="res num">Found</th><th class="res num">Filed</th>
+              <th class="res num">AI calls</th><th class="res num">Cost</th><th class="res num">Duration</th><th class="res">Health</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+        <div class="dropzone" id="dropzone">
+          <div>
+            <h2>Drop the parameters file here</h2>
+            <p>Excel or CSV, one row per site: name, url, access (private or public), years, requested documents, force learning.</p>
+            <button class="btn primary" id="pick">Choose a file</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Page 2: why AI changes everything ============ -->
+  <main class="page" id="page-why" hidden></main>
+</div>
+
+<div id="flyers"></div>
+<div id="checks"><h3>The new recipe must pass 5 checks</h3><ul id="checks-list"></ul></div>
+<div id="toasts" aria-live="polite"></div>
+<div id="help"><div class="box"><h2>Presenter mode</h2><dl>
+  <dt>Space</dt><dd>Pause or resume the animation</dd>
+  <dt>+ and −</dt><dd>Speed up or slow down</dd>
+  <dt>F</dt><dd>Switch between live and recorded runs</dd>
+  <dt>1 and 2</dt><dd>Show page 1 or page 2</dd>
+  <dt>?</dt><dd>Show this help</dd>
+</dl></div></div>
+
+<script src="/static/flow.js"></script>
+<script src="/static/app.js"></script>
+<script src="/static/why.js"></script>
+</body>
+</html>

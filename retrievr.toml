@@ -1,0 +1,9 @@
+# Retrievr settings used by the demo (state and output folders are set in demo.toml).
+[llm]
+model_small = "openai/gpt-6-luna"
+model_large = "openai/gpt-6-luna"
+max_cost_per_run_usd = 0.10
+
+[browser]
+enabled = true
+channel = "msedge"

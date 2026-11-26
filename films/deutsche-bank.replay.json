@@ -1,0 +1,673 @@
+{
+ "row": {
+  "id": "deutsche-bank",
+  "name": "Deutsche Bank",
+  "url": "https://investor-relations.db.com/reports-and-events/quarterly-results",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "quarterly results, annual report",
+  "force_learn": false,
+  "line": 4
+ },
+ "kind": "replay",
+ "recorded": "2026-11-26 17:57",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "deutsche-bank",
+    "name": "Deutsche Bank",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "site",
+    "url": "https://investor-relations.db.com/reports-and-events/quarterly-results",
+    "request": "quarterly results, annual report"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "known",
+    "known": true,
+    "relearn": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "replay"
+   }
+  },
+  {
+   "dt": 1.015,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "read",
+    "pages": 1
+   }
+  },
+  {
+   "dt": 1.015,
+   "event": {
+    "type": "pages",
+    "row": "deutsche-bank",
+    "n": 1
+   }
+  },
+  {
+   "dt": 1.234,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "health",
+    "verdict": "ok"
+   }
+  },
+  {
+   "dt": 1.234,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 1.234,
+   "event": {
+    "type": "ai_start",
+    "row": "deutsche-bank",
+    "link": "a3"
+   }
+  },
+  {
+   "dt": 4.453,
+   "event": {
+    "type": "ai_end",
+    "row": "deutsche-bank",
+    "link": "a3",
+    "step": "filter",
+    "cached": false,
+    "input_tokens": 1335,
+    "output_tokens": 177,
+    "cost": 0.0002043
+   }
+  },
+  {
+   "dt": 4.468,
+   "event": {
+    "type": "pages",
+    "row": "deutsche-bank",
+    "n": 2
+   }
+  },
+  {
+   "dt": 4.531,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 4.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 1,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2025 Q4"
+   }
+  },
+  {
+   "dt": 5.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 2,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q4"
+   }
+  },
+  {
+   "dt": 6.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 3,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q4"
+   }
+  },
+  {
+   "dt": 7.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 4,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q4"
+   }
+  },
+  {
+   "dt": 8.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 5,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q4"
+   }
+  },
+  {
+   "dt": 9.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 6,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2025 Q3"
+   }
+  },
+  {
+   "dt": 10.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 7,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q3"
+   }
+  },
+  {
+   "dt": 11.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 8,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q3"
+   }
+  },
+  {
+   "dt": 12.625,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 9,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Quarterly report 2025 Q3"
+   }
+  },
+  {
+   "dt": 13.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 10,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q3"
+   }
+  },
+  {
+   "dt": 14.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 11,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q3"
+   }
+  },
+  {
+   "dt": 15.515,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 12,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2025 Q2"
+   }
+  },
+  {
+   "dt": 16.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 13,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q2"
+   }
+  },
+  {
+   "dt": 17.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 14,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q2"
+   }
+  },
+  {
+   "dt": 18.625,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 15,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Quarterly report 2025 Q2"
+   }
+  },
+  {
+   "dt": 19.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 16,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q2"
+   }
+  },
+  {
+   "dt": 20.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 17,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q2"
+   }
+  },
+  {
+   "dt": 21.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 18,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2025 Q1"
+   }
+  },
+  {
+   "dt": 22.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 19,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q1"
+   }
+  },
+  {
+   "dt": 23.562,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 20,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2025 Q1"
+   }
+  },
+  {
+   "dt": 24.765,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 21,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Quarterly report 2025 Q1"
+   }
+  },
+  {
+   "dt": 25.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 22,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q1"
+   }
+  },
+  {
+   "dt": 26.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 23,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q1"
+   }
+  },
+  {
+   "dt": 27.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 24,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2024 Q4"
+   }
+  },
+  {
+   "dt": 28.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 25,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q4"
+   }
+  },
+  {
+   "dt": 29.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 26,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q4"
+   }
+  },
+  {
+   "dt": 30.593,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 27,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q4"
+   }
+  },
+  {
+   "dt": 31.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 28,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q4"
+   }
+  },
+  {
+   "dt": 32.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 29,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2024 Q3"
+   }
+  },
+  {
+   "dt": 33.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 30,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q3"
+   }
+  },
+  {
+   "dt": 34.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 31,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q3"
+   }
+  },
+  {
+   "dt": 35.578,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 32,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q3"
+   }
+  },
+  {
+   "dt": 36.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 33,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q3"
+   }
+  },
+  {
+   "dt": 37.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 34,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q3"
+   }
+  },
+  {
+   "dt": 38.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 35,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2024 Q2"
+   }
+  },
+  {
+   "dt": 39.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 36,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q2"
+   }
+  },
+  {
+   "dt": 40.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 37,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q2"
+   }
+  },
+  {
+   "dt": 41.593,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 38,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q2"
+   }
+  },
+  {
+   "dt": 42.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 39,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q2"
+   }
+  },
+  {
+   "dt": 43.546,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 40,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q2"
+   }
+  },
+  {
+   "dt": 44.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 41,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Press release 2024 Q1"
+   }
+  },
+  {
+   "dt": 45.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 42,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q1"
+   }
+  },
+  {
+   "dt": 46.562,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 43,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Financial data supplement 2024 Q1"
+   }
+  },
+  {
+   "dt": 47.578,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 44,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Quarterly report 2024 Q1"
+   }
+  },
+  {
+   "dt": 48.578,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 45,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q1"
+   }
+  },
+  {
+   "dt": 49.531,
+   "event": {
+    "type": "doc",
+    "row": "deutsche-bank",
+    "index": 46,
+    "total": 46,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q1"
+   }
+  },
+  {
+   "dt": 49.546,
+   "event": {
+    "type": "step",
+    "row": "deutsche-bank",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 49.546,
+   "event": {
+    "type": "run_end",
+    "row": "deutsche-bank",
+    "result": {
+     "status_label": "Done",
+     "recipe_label": "Known",
+     "found": 46,
+     "files": 46,
+     "new": 46,
+     "ai_calls": 1,
+     "tokens": 1512,
+     "cost": 0.000204,
+     "seconds": 49.5,
+     "health_label": "Good",
+     "at": "2026-11-26 17:57",
+     "notes": "",
+     "pages": 2
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "stories": [
+  {
+   "id": "rebuilt",
+   "issuer": "Société Générale",
+   "label": "The page was rebuilt: the list now loads from a hidden data feed",
+   "mutation": "json_list",
+   "status": "ok",
+   "repaired": true,
+   "rungs": [
+    {
+     "rung": "relocate",
+     "passed": false
+    },
+    {
+     "rung": "llm:small",
+     "passed": true
+    }
+   ],
+   "documents_before": 30,
+   "documents_after": 30,
+   "health": {
+    "verdict": "broken",
+    "missing": 0,
+    "summary": "broken: documents broken (no document listed)"
+   },
+   "ai_calls": 1,
+   "input_tokens": 5799,
+   "output_tokens": 1374,
+   "cost": 0.00113,
+   "ai_seconds": 12.4,
+   "pages": 26,
+   "estimated_seconds": 38,
+   "recipe_before": "societegenerale-ir@1",
+   "recipe_after": "societegenerale-ir@2",
+   "checks": [
+    {
+     "name": "anchors",
+     "label": "Every reference document is found",
+     "passed": true,
+     "detail": "0 missing"
+    },
+    {
+     "name": "known_documents",
+     "label": "95% of known documents are still there",
+     "passed": true,
+     "detail": "100% of 30 still found"
+    },
+    {
+     "name": "volume",
+     "label": "The volume stays plausible",
+     "passed": true,
+     "detail": "30 vs at most 45"
+    },
+    {
+     "name": "domains",
+     "label": "Everything stays on the issuer's site",
+     "passed": true,
+     "detail": "0 outside allowed_domains"
+    },
+    {
+     "name": "deterministic",
+     "label": "Two runs give the same result",
+     "passed": true,
+     "detail": "identical"
+    }
+   ],
+   "titles": [
+    "T4 2024 Résultats financiers séries trimestrielles retraitées (XLSX)",
+    "T4 2024 Résultats financiers séries trimestrielles retraitées",
+    "T4 2024 Résultats financiers - États Financiers",
+    "T4 2024 Résultats financiers - Séries trimestrielles",
+    "T4 2024 Résultats financiers - Communiqué de presse",
+    "T4 2024 Résultats financiers - Présentation",
+    "T3 2024 Résultats financiers - Présentation",
+    "T3 2024 Résultats financiers - Séries trimestrielles",
+    "T3 2024 Résultats financiers - Communiqué de presse"
+   ],
+   "events": [
+    "health_alert",
+    "recipe_repaired",
+    "run_finished"
+   ]
+  },
+  {
+   "id": "renamed",
+   "issuer": "Crédit Agricole",
+   "label": "The page was restyled: its building blocks were renamed",
+   "mutation": "rename_classes",
+   "status": "ok",
+   "repaired": true,
+   "rungs": [
+    {
+     "rung": "relocate",
+     "passed": true
+    }
+   ],
+   "documents_before": 123,
+   "documents_after": 123,
+   "health": {
+    "verdict": "broken",
+    "missing": 0,
+    "summary": "broken: documents broken (no document listed)"
+   },
+   "ai_calls": 0,
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "cost": 0.0,
+   "ai_seconds": 0,
+   "pages": 55,
+   "estimated_seconds": 55,
+   "recipe_before": "creditagricole-ir@1",
+   "recipe_after": "creditagricole-ir@2",
+   "checks": [
+    {
+     "name": "anchors",
+     "label": "Every reference document is found",
+     "passed": true,
+     "detail": "0 missing"
+    },
+    {
+     "name": "known_documents",
+     "label": "95% of known documents are still there",
+     "passed": true,
+     "detail": "100% of 123 still found"
+    },
+    {
+     "name": "volume",
+     "label": "The volume stays plausible",
+     "passed": true,
+     "detail": "123 vs at most 184"
+    },
+    {
+     "name": "domains",
+     "label": "Everything stays on the issuer's site",
+     "passed": true,
+     "detail": "0 outside allowed_domains"
+    },
+    {
+     "name": "deterministic",
+     "label": "Two runs give the same result",
+     "passed": true,
+     "detail": "identical"
+    }
+   ],
+   "titles": [
+    "Résultats du 3e trimestre et des neuf premiers mois 2026",
+    "Présentation de la conférence de presse",
+    "Communiqué de presse",
+    "Séries trimestrielles",
+    "Présentation de la conférence de presse",
+    "Séries trimestrielles",
+    "Résultats du 2e trimestre et 1er semestre 2026",
+    "Communiqué de presse - Résultats du 2e trimestre et 1er semestre 2026",
+    "Transcript des résultats du 2e trimestre et 1er semestre 2026"
+   ],
+   "events": [
+    "health_alert",
+    "recipe_repaired",
+    "run_finished"
+   ]
+  }
+ ]
+}

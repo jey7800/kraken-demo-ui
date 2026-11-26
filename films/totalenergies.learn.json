@@ -1,0 +1,302 @@
+{
+ "row": {
+  "id": "totalenergies",
+  "name": "TotalEnergies",
+  "url": "https://totalenergies.com/investors/publications-and-regulated-information/regulated-information/annual-financial-reports",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "universal registration document, half-year report",
+  "force_learn": false,
+  "line": 9
+ },
+ "kind": "learn",
+ "recorded": "2026-11-26 18:04",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "totalenergies",
+    "name": "TotalEnergies",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "site",
+    "url": "https://totalenergies.com/investors/publications-and-regulated-information/regulated-information/annual-financial-reports",
+    "request": "universal registration document, half-year report"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "known",
+    "known": false,
+    "relearn": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "learn"
+   }
+  },
+  {
+   "dt": 1.015,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 1
+   }
+  },
+  {
+   "dt": 1.219,
+   "event": {
+    "type": "ai_start",
+    "row": "totalenergies",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 6.64,
+   "event": {
+    "type": "ai_end",
+    "row": "totalenergies",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 3742,
+    "output_tokens": 626,
+    "cost": 0.0006246
+   }
+  },
+  {
+   "dt": 6.64,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 2
+   }
+  },
+  {
+   "dt": 6.703,
+   "event": {
+    "type": "ai_start",
+    "row": "totalenergies",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 25.844,
+   "event": {
+    "type": "ai_end",
+    "row": "totalenergies",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 5289,
+    "output_tokens": 3172,
+    "cost": 0.0017977000000000002
+   }
+  },
+  {
+   "dt": 25.844,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 3
+   }
+  },
+  {
+   "dt": 26.844,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 4
+   }
+  },
+  {
+   "dt": 27.844,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 5
+   }
+  },
+  {
+   "dt": 28.844,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 6
+   }
+  },
+  {
+   "dt": 29.844,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 7
+   }
+  },
+  {
+   "dt": 29.922,
+   "event": {
+    "type": "ai_start",
+    "row": "totalenergies",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 32.406,
+   "event": {
+    "type": "ai_end",
+    "row": "totalenergies",
+    "link": "a1",
+    "step": "filter",
+    "cached": false,
+    "input_tokens": 1337,
+    "output_tokens": 63,
+    "cost": 0.00015890000000000004
+   }
+  },
+  {
+   "dt": 32.422,
+   "event": {
+    "type": "pages",
+    "row": "totalenergies",
+    "n": 8
+   }
+  },
+  {
+   "dt": 32.953,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "read",
+    "pages": 8,
+    "found": 48
+   }
+  },
+  {
+   "dt": 32.953,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "health",
+    "verdict": "baseline"
+   }
+  },
+  {
+   "dt": 32.953,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 32.953,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 32.953,
+   "event": {
+    "type": "doc",
+    "row": "totalenergies",
+    "index": 1,
+    "total": 4,
+    "status": "downloaded",
+    "label": "Urd 2025 FY"
+   }
+  },
+  {
+   "dt": 33.89,
+   "event": {
+    "type": "doc",
+    "row": "totalenergies",
+    "index": 2,
+    "total": 4,
+    "status": "downloaded",
+    "label": "Urd 2025 FY"
+   }
+  },
+  {
+   "dt": 34.875,
+   "event": {
+    "type": "doc",
+    "row": "totalenergies",
+    "index": 3,
+    "total": 4,
+    "status": "downloaded",
+    "label": "Urd 2024 FY"
+   }
+  },
+  {
+   "dt": 36.594,
+   "event": {
+    "type": "doc",
+    "row": "totalenergies",
+    "index": 4,
+    "total": 4,
+    "status": "downloaded",
+    "label": "Urd 2024 FY"
+   }
+  },
+  {
+   "dt": 36.609,
+   "event": {
+    "type": "step",
+    "row": "totalenergies",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 36.609,
+   "event": {
+    "type": "run_end",
+    "row": "totalenergies",
+    "result": {
+     "status_label": "Learned",
+     "recipe_label": "Learned",
+     "found": 4,
+     "files": 4,
+     "new": 4,
+     "ai_calls": 3,
+     "tokens": 14229,
+     "cost": 0.002581,
+     "seconds": 36.6,
+     "health_label": "New recipe",
+     "at": "2026-11-26 18:04",
+     "notes": "",
+     "pages": 8
+    }
+   }
+  }
+ ]
+}

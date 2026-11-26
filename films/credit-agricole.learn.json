@@ -1,0 +1,1178 @@
+{
+ "row": {
+  "id": "credit-agricole",
+  "name": "Crédit Agricole",
+  "url": "https://www.credit-agricole.com/finance/publications-financieres",
+  "private": false,
+  "years": [
+   2024,
+   2025
+  ],
+  "request": "annual reports, universal registration documents, quarterly results",
+  "force_learn": true,
+  "line": 3
+ },
+ "kind": "learn",
+ "recorded": "2026-11-26 18:09",
+ "events": [
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "run_start",
+    "row": "credit-agricole",
+    "name": "Crédit Agricole",
+    "private": false,
+    "source": "live"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "site",
+    "url": "https://www.credit-agricole.com/finance/publications-financieres",
+    "request": "annual reports, universal registration documents, quarterly results"
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "access",
+    "private": false
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "known",
+    "known": false,
+    "relearn": true
+   }
+  },
+  {
+   "dt": 0.0,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "learn"
+   }
+  },
+  {
+   "dt": 1.015,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 1
+   }
+  },
+  {
+   "dt": 39.906,
+   "event": {
+    "type": "ai_start",
+    "row": "credit-agricole",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 51.812,
+   "event": {
+    "type": "ai_end",
+    "row": "credit-agricole",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 8644,
+    "output_tokens": 1729,
+    "cost": 0.001556
+   }
+  },
+  {
+   "dt": 51.828,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 2
+   }
+  },
+  {
+   "dt": 51.969,
+   "event": {
+    "type": "ai_start",
+    "row": "credit-agricole",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 57.969,
+   "event": {
+    "type": "ai_end",
+    "row": "credit-agricole",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 9108,
+    "output_tokens": 891,
+    "cost": 0.0012672
+   }
+  },
+  {
+   "dt": 57.969,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 3
+   }
+  },
+  {
+   "dt": 58.984,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 4
+   }
+  },
+  {
+   "dt": 59.969,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 5
+   }
+  },
+  {
+   "dt": 60.984,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 6
+   }
+  },
+  {
+   "dt": 61.969,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 7
+   }
+  },
+  {
+   "dt": 62.969,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 8
+   }
+  },
+  {
+   "dt": 63.047,
+   "event": {
+    "type": "ai_start",
+    "row": "credit-agricole",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 77.5,
+   "event": {
+    "type": "ai_end",
+    "row": "credit-agricole",
+    "link": "a1",
+    "step": "structure",
+    "cached": false,
+    "input_tokens": 10310,
+    "output_tokens": 2018,
+    "cost": 0.0018382000000000001
+   }
+  },
+  {
+   "dt": 77.515,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 9
+   }
+  },
+  {
+   "dt": 78.515,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 10
+   }
+  },
+  {
+   "dt": 79.515,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 11
+   }
+  },
+  {
+   "dt": 80.515,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 12
+   }
+  },
+  {
+   "dt": 81.515,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 13
+   }
+  },
+  {
+   "dt": 82.515,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 14
+   }
+  },
+  {
+   "dt": 83.765,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 15
+   }
+  },
+  {
+   "dt": 84.765,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 16
+   }
+  },
+  {
+   "dt": 85.922,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 17
+   }
+  },
+  {
+   "dt": 86.937,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 18
+   }
+  },
+  {
+   "dt": 88.172,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 19
+   }
+  },
+  {
+   "dt": 89.172,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 20
+   }
+  },
+  {
+   "dt": 90.172,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 21
+   }
+  },
+  {
+   "dt": 91.172,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 22
+   }
+  },
+  {
+   "dt": 92.187,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 23
+   }
+  },
+  {
+   "dt": 93.172,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 24
+   }
+  },
+  {
+   "dt": 94.172,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 25
+   }
+  },
+  {
+   "dt": 94.453,
+   "event": {
+    "type": "ai_start",
+    "row": "credit-agricole",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 126.578,
+   "event": {
+    "type": "ai_end",
+    "row": "credit-agricole",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 7253,
+    "output_tokens": 5043,
+    "cost": 0.0027425
+   }
+  },
+  {
+   "dt": 126.594,
+   "event": {
+    "type": "ai_start",
+    "row": "credit-agricole",
+    "link": "a1"
+   }
+  },
+  {
+   "dt": 156.797,
+   "event": {
+    "type": "ai_end",
+    "row": "credit-agricole",
+    "link": "a1",
+    "step": "rules",
+    "cached": false,
+    "input_tokens": 10014,
+    "output_tokens": 4742,
+    "cost": 0.0028982
+   }
+  },
+  {
+   "dt": 156.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 26
+   }
+  },
+  {
+   "dt": 157.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 27
+   }
+  },
+  {
+   "dt": 158.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 28
+   }
+  },
+  {
+   "dt": 159.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 29
+   }
+  },
+  {
+   "dt": 160.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 30
+   }
+  },
+  {
+   "dt": 161.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 31
+   }
+  },
+  {
+   "dt": 162.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 32
+   }
+  },
+  {
+   "dt": 163.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 33
+   }
+  },
+  {
+   "dt": 164.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 34
+   }
+  },
+  {
+   "dt": 165.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 35
+   }
+  },
+  {
+   "dt": 166.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 36
+   }
+  },
+  {
+   "dt": 167.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 37
+   }
+  },
+  {
+   "dt": 168.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 38
+   }
+  },
+  {
+   "dt": 169.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 39
+   }
+  },
+  {
+   "dt": 170.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 40
+   }
+  },
+  {
+   "dt": 171.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 41
+   }
+  },
+  {
+   "dt": 172.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 42
+   }
+  },
+  {
+   "dt": 173.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 43
+   }
+  },
+  {
+   "dt": 174.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 44
+   }
+  },
+  {
+   "dt": 175.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 45
+   }
+  },
+  {
+   "dt": 176.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 46
+   }
+  },
+  {
+   "dt": 177.812,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 47
+   }
+  },
+  {
+   "dt": 178.922,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 48
+   }
+  },
+  {
+   "dt": 180.969,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 49
+   }
+  },
+  {
+   "dt": 181.969,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 50
+   }
+  },
+  {
+   "dt": 184.047,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 51
+   }
+  },
+  {
+   "dt": 185.047,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 52
+   }
+  },
+  {
+   "dt": 187.359,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 53
+   }
+  },
+  {
+   "dt": 188.359,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 54
+   }
+  },
+  {
+   "dt": 191.844,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 55
+   }
+  },
+  {
+   "dt": 192.844,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 56
+   }
+  },
+  {
+   "dt": 193.844,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 57
+   }
+  },
+  {
+   "dt": 194.844,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 58
+   }
+  },
+  {
+   "dt": 195.844,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 59
+   }
+  },
+  {
+   "dt": 196.844,
+   "event": {
+    "type": "pages",
+    "row": "credit-agricole",
+    "n": 60
+   }
+  },
+  {
+   "dt": 197.219,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "read",
+    "pages": 60,
+    "found": 56
+   }
+  },
+  {
+   "dt": 197.219,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "health",
+    "verdict": "baseline"
+   }
+  },
+  {
+   "dt": 197.219,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "classify"
+   }
+  },
+  {
+   "dt": 197.219,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "download"
+   }
+  },
+  {
+   "dt": 197.219,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 1,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2025 Q4"
+   }
+  },
+  {
+   "dt": 198.203,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 2,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2025 Q4"
+   }
+  },
+  {
+   "dt": 199.359,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 3,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q4"
+   }
+  },
+  {
+   "dt": 200.234,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 4,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Financial statements 2025 FY"
+   }
+  },
+  {
+   "dt": 201.031,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 5,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 FY"
+   }
+  },
+  {
+   "dt": 202.094,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 6,
+    "total": 42,
+    "status": "error",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 203.062,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 7,
+    "total": 42,
+    "status": "error",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 204.109,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 8,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2025 Q3"
+   }
+  },
+  {
+   "dt": 205.031,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 9,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2025 Q3"
+   }
+  },
+  {
+   "dt": 206.015,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 10,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q3"
+   }
+  },
+  {
+   "dt": 206.984,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 11,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q3"
+   }
+  },
+  {
+   "dt": 208.062,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 12,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q2"
+   }
+  },
+  {
+   "dt": 209.5,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 13,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2025 Q2"
+   }
+  },
+  {
+   "dt": 209.969,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 14,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2025 Q2"
+   }
+  },
+  {
+   "dt": 211.015,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 15,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q2 32103818"
+   }
+  },
+  {
+   "dt": 212.0,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 16,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q2"
+   }
+  },
+  {
+   "dt": 213.14,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 17,
+    "total": 42,
+    "status": "error",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 214.062,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 18,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2025 Q1"
+   }
+  },
+  {
+   "dt": 215.047,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 19,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2025 Q1"
+   }
+  },
+  {
+   "dt": 216.031,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 20,
+    "total": 42,
+    "status": "error",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 217.234,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 21,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2025 Q1"
+   }
+  },
+  {
+   "dt": 218.015,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 22,
+    "total": 42,
+    "status": "error",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 219.094,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 23,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2024 Q4"
+   }
+  },
+  {
+   "dt": 220.015,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 24,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2024 Q4"
+   }
+  },
+  {
+   "dt": 222.312,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 25,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q4"
+   }
+  },
+  {
+   "dt": 222.625,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 26,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q4"
+   }
+  },
+  {
+   "dt": 223.484,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 27,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q3"
+   }
+  },
+  {
+   "dt": 224.562,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 28,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q3"
+   }
+  },
+  {
+   "dt": 225.531,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 29,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2024 Q3"
+   }
+  },
+  {
+   "dt": 226.844,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 30,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2024 Q3"
+   }
+  },
+  {
+   "dt": 227.5,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 31,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q3 938ebd24"
+   }
+  },
+  {
+   "dt": 228.687,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 32,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q2"
+   }
+  },
+  {
+   "dt": 229.531,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 33,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2024 Q2"
+   }
+  },
+  {
+   "dt": 230.594,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 34,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2024 Q2"
+   }
+  },
+  {
+   "dt": 231.765,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 35,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Urd 2024 H1"
+   }
+  },
+  {
+   "dt": 232.515,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 36,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q2"
+   }
+  },
+  {
+   "dt": 233.672,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 37,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q2 4eac96cd"
+   }
+  },
+  {
+   "dt": 234.5,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 38,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Analyst call transcript 2024 Q1"
+   }
+  },
+  {
+   "dt": 235.562,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 39,
+    "total": 42,
+    "status": "error",
+    "label": "Document"
+   }
+  },
+  {
+   "dt": 236.797,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 40,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Press release 2024 Q1"
+   }
+  },
+  {
+   "dt": 237.5,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 41,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Quarterly series 2024 Q1"
+   }
+  },
+  {
+   "dt": 238.531,
+   "event": {
+    "type": "doc",
+    "row": "credit-agricole",
+    "index": 42,
+    "total": 42,
+    "status": "downloaded",
+    "label": "Results presentation 2024 Q1"
+   }
+  },
+  {
+   "dt": 238.531,
+   "event": {
+    "type": "step",
+    "row": "credit-agricole",
+    "step": "store"
+   }
+  },
+  {
+   "dt": 238.531,
+   "event": {
+    "type": "run_end",
+    "row": "credit-agricole",
+    "result": {
+     "status_label": "Learned",
+     "recipe_label": "Learned",
+     "found": 42,
+     "files": 36,
+     "new": 36,
+     "ai_calls": 5,
+     "tokens": 59752,
+     "cost": 0.010302,
+     "seconds": 238.5,
+     "health_label": "New recipe",
+     "at": "2026-11-26 18:09",
+     "notes": "",
+     "pages": 60
+    }
+   }
+  }
+ ]
+}
