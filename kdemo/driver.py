@@ -186,7 +186,9 @@ class Tracker:
                 label=self.doc_label(event.message, status),
                 reason=reason.group(1)[:200] if reason else "",
             )
-        elif event.kind in ("blocked", "unauthorized", "budget_exceeded", "llm_error"):
+        elif event.kind == "blocked":
+            self.emit("notice", kind=event.kind, text=re.sub(r" at https?://\S+", "", event.message)[:200])
+        elif event.kind in ("unauthorized", "budget_exceeded", "llm_error"):
             self.emit("notice", kind=event.kind, text=event.message[:200])
 
     def doc_label(self, message: str, status: str) -> str:

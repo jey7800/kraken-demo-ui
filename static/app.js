@@ -386,6 +386,17 @@ async function onDoc(e, run) {
   await sleep(busy() ? 25 : (e.index <= 14 ? 160 : 50));
 }
 
+/* "the site blocks downloads: blocked: challenge page (Imperva) at https://..." ->
+   "The site's files are behind a bot protection (Imperva challenge page)." */
+function blockedTitle(notes) {
+  const m = /blocked: (.+?) at https?:/.exec(notes || "") || /blocked: ([^;]+)/.exec(notes || "");
+  const what = m ? m[1].trim() : "";
+  const named = /^(.*?)\s*\(([^)]+)\)$/.exec(what);  // "challenge page (Imperva)"
+  const label = named ? `${named[2]} ${named[1]}` : what;
+  const files = /blocks downloads/.test(notes || "") ? "The site's files are" : "The site is";
+  return label ? `${files} behind a bot protection (${label}).` : "The site refused our robot.";
+}
+
 async function runEnd(e, run) {
   const r = e.result || {};
   S.results[run.id] = r;
@@ -399,7 +410,7 @@ async function runEnd(e, run) {
     Flow.finish();
   } else {
     const msg = {
-      Blocked: ["The site refused our robot: Kraken stops cleanly.", "No workaround, no stealth: the site is marked blocked."],
+      Blocked: [blockedTitle(r.notes), "Kraken stops cleanly: no workaround, no stealth. The site is marked blocked."],
       "Sign-in refused": ["Sign-in failed: nothing was collected.", r.notes || ""],
       Degraded: ["The site changed and no repair passed the checks.", "The previous recipe stays active and the team is alerted."],
       "No recipe": ["No recipe for this site yet.", "Run it with Re-learn first."],
