@@ -14,6 +14,7 @@ output_dir = "downloads"
 port = 8765
 open_browser = true
 fresh_ai_on_learn = true      # Re-learn calls the AI for real, never its response cache
+redownload = true             # every live run of a public site downloads its files again
 adapter = ""                  # e.g. "kraken.demo_adapter:create" on the work PC
 ai_name = "SecureGPT"
 

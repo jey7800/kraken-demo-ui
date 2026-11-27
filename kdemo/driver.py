@@ -7,11 +7,12 @@ and builds the row's result. Retrievr itself is used through its public API only
 
 from __future__ import annotations
 
+import json
 import re
 import time
 from collections.abc import Callable
 from datetime import datetime
-from pathlib import PurePosixPath
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 import httpx
@@ -264,6 +265,8 @@ class SiteRunner:
                 return self._end(tracker, row, started, "No recipe",
                                  notes=f"no recipe installed for site '{row.id}'")
             learning = not known
+            if self.cfg.redownload and not row.private:
+                self.forget_files(row)
             retrievr = self._retrievr(tracker, session, row, fresh_ai=learning and self.cfg.fresh_ai_on_learn)
             with AICallTap(tracker.on_ai_call):
                 if learning:
@@ -283,6 +286,33 @@ class SiteRunner:
                     self.adapter.close_session(session)
                 except Exception:
                     pass
+
+    def forget_files(self, row: SiteRow) -> int:
+        """Delete the files Retrievr filed for this row's issuer in the demo's output folder
+        (read from its manifest). Retrievr then downloads them again: a file missing from
+        disk is never treated as known. Returns the number of files deleted."""
+        settings = self.settings(fresh_ai=False, row=row)
+        out = Path(settings.output.output_dir).resolve()
+        manifest = out / "manifest.json"
+        if not manifest.is_file():
+            return 0
+        # A re-learned site files under its row id, a hand-written recipe under its issuer:
+        # both, since the manifest knows documents by URL whatever folder they are in.
+        recipe = Retrievr(settings=settings).store.active_recipe(row.id)
+        issuers = {row.id} | ({recipe.issuer} if recipe is not None else set())
+        try:
+            entries = json.loads(manifest.read_text(encoding="utf-8")).get("documents", [])
+        except (OSError, ValueError):
+            return 0
+        deleted = 0
+        for entry in entries:
+            if entry.get("issuer") not in issuers or not entry.get("path"):
+                continue
+            path = (out / entry["path"]).resolve()
+            if out in path.parents and path.is_file():  # never outside the output folder
+                path.unlink()
+                deleted += 1
+        return deleted
 
     def _retrievr(self, tracker: Tracker, session: HostSession | None, row: SiteRow, *,
                   fresh_ai: bool) -> Retrievr:

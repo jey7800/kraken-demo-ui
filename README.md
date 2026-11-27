@@ -27,6 +27,10 @@ Settings are in `demo.toml` (copy `demo.example.toml`). Press F11 in Edge for fu
   `examples/kickoff_parameters.xlsx` is the kick-off file.
 - **Run all**, or **Run** / **Re-learn** on a row. Re-learn makes the AI learn the site
   again from scratch (real AI calls, never the response cache).
+- **Found** is the number of documents matching the request; **Filed** the number of
+  files on disk after the run. With `redownload = true` (default), a live run of a public
+  site first deletes the files it filed earlier in the demo's output folder, so they are
+  downloaded and shown again every time. Private rows never are.
 - **Export enriched Excel** downloads the file with the result columns and a summary sheet.
 - **Live / Recorded run**: every live run is recorded in `films/`. In "Recorded run" mode,
   Run plays the last recording of the row: no network, no AI, speed adjustable. This is

@@ -38,6 +38,9 @@ class DemoConfig:
     open_browser: bool = True
     fresh_ai_on_learn: bool = True
     """Learning calls the AI for real instead of reusing cached answers."""
+    redownload: bool = True
+    """Before a live run of a public site, delete the files it filed earlier in the demo's
+    output folder, so every run downloads (and shows) them again. Never for private rows."""
     adapter: str = ""
     """``module:factory`` creating the private-portal adapter (Kraken 2.0). Empty: none."""
     ai_name: str = "SecureGPT"
@@ -61,7 +64,7 @@ class DemoConfig:
         for key in ("port",):
             if key in raw:
                 setattr(cfg, key, int(raw[key]))
-        for key in ("open_browser", "fresh_ai_on_learn"):
+        for key in ("open_browser", "fresh_ai_on_learn", "redownload"):
             if key in raw:
                 setattr(cfg, key, bool(raw[key]))
         if "film_max_gap_s" in raw:

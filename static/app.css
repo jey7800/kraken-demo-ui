@@ -15,6 +15,7 @@
   --amber: #ffb547;         /* the site changed: repair */
   --amber-soft: rgba(255, 181, 71, .15);
   --bad: #ff6b6b;
+  --good: #5fe3a1;         /* success in the table (red stays the AI's colour in the diagram) */
   --display: "Bahnschrift", "DIN Alternate", "Segoe UI Variable Display", "Segoe UI", sans-serif;
   --body: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
 }
@@ -159,7 +160,7 @@ tr:last-child td { border-bottom: 0; }
 tbody tr { transition: background .3s; }
 tbody tr.running { background: rgba(77, 141, 255, .1); box-shadow: inset 3px 0 0 var(--flow); }
 tbody tr.running.amber { background: rgba(255, 181, 71, .08); box-shadow: inset 3px 0 0 var(--amber); }
-tbody tr.running.ai { background: rgba(255, 77, 109, .08); box-shadow: inset 3px 0 0 var(--ai); }
+tbody tr.running.ai { background: rgba(95, 227, 161, .07); box-shadow: inset 3px 0 0 var(--good); }
 td.name { font-weight: 600; font-size: 16px; max-width: 240px; overflow: hidden; text-overflow: ellipsis; }
 td.req { color: var(--muted); max-width: 300px; overflow: hidden; text-overflow: ellipsis; }
 td.empty { color: var(--faint); }
@@ -175,17 +176,17 @@ td.empty { color: var(--faint); }
 .status.run i { background: var(--flow); animation: ping 1.2s infinite; }
 .status.queued { color: var(--muted); font-weight: 500; }
 .status.ok { color: var(--done); } .status.ok i { background: var(--done); }
-.status.learned { color: var(--ai); } .status.learned i { background: var(--ai); }
+.status.learned { color: var(--good); } .status.learned i { background: var(--good); }
 .status.repaired { color: var(--amber); } .status.repaired i { background: var(--amber); }
 .status.bad { color: var(--bad); } .status.bad i { background: var(--bad); }
 .status.idle { color: var(--muted); font-weight: 500; }
 .status small { font-weight: 500; color: var(--faint); margin-left: 2px; }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(77, 141, 255, .7); } 70%, 100% { box-shadow: 0 0 0 8px rgba(77, 141, 255, 0); } }
 td.zero { color: var(--done); }
-td.aiv { color: var(--ai); }
+td.aiv { color: var(--good); }
 .health { display: inline-flex; align-items: center; gap: 7px; }
 .health i { width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: currentColor; }
-.health.good { color: var(--done); } .health.fixed { color: var(--amber); } .health.new { color: var(--ai); } .health.bad { color: var(--bad); }
+.health.good { color: var(--done); } .health.fixed { color: var(--amber); } .health.new { color: var(--good); } .health.bad { color: var(--bad); }
 .mini { font: 600 13px var(--body); border-radius: 8px; padding: 5px 12px; cursor: pointer; border: 1px solid var(--line); background: var(--navy-2); color: var(--text); }
 .mini.relearn { color: var(--ai); border-color: rgba(255, 77, 109, .4); background: rgba(255, 77, 109, .07); }
 .mini:disabled { opacity: .35; cursor: default; }

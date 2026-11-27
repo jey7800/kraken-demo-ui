@@ -143,6 +143,29 @@ def test_film_round_trip(tmp_path: Path) -> None:
     assert got[0]["source"] == "film" and result is not None and result["source"] == "film"
 
 
+def test_forget_files_deletes_only_this_issuer(tmp_path: Path) -> None:
+    import json
+
+    from kdemo.config import DemoConfig
+    from kdemo.driver import SiteRunner
+
+    out = tmp_path / "downloads"
+    for rel in ("s/2025/a.pdf", "other/2025/b.pdf"):
+        (out / rel).parent.mkdir(parents=True, exist_ok=True)
+        (out / rel).write_bytes(b"%PDF-")
+    (out / "manifest.json").write_text(json.dumps({"documents": [
+        {"issuer": "s", "path": "s/2025/a.pdf"},
+        {"issuer": "other", "path": "other/2025/b.pdf"},
+        {"issuer": "s", "path": "../outside.pdf"},
+    ]}), encoding="utf-8")
+    (tmp_path / "outside.pdf").write_bytes(b"keep")
+    cfg = DemoConfig(root=tmp_path, state_dir=tmp_path / "state", output_dir=out).resolved()
+    row = SiteRow("s", "Site", "https://s.example", False, [], "", False, 2)
+    assert SiteRunner(cfg, lambda _e: None).forget_files(row) == 1
+    assert not (out / "s/2025/a.pdf").exists()
+    assert (out / "other/2025/b.pdf").exists() and (tmp_path / "outside.pdf").exists()
+
+
 def test_failed_runs_are_not_recorded(tmp_path: Path) -> None:
     rec = Recorder({"id": "s"})
     rec.add({"type": "run_end", "row": "s", "result": {"status_label": "Blocked"}})
