@@ -224,7 +224,8 @@ RESULT_COLUMNS = [
     ("Duration", 10), ("Health", 13), ("Run at", 17), ("Notes", 48),
 ]
 STATUS_STYLE = {"Done": OK, "Learned": LEARNED, "Repaired": WARN, "Degraded": BAD,
-                "Blocked": BAD, "Sign-in refused": BAD, "Error": BAD, "No recipe": BAD}
+                "Blocked": BAD, "Sign-in refused": BAD, "Error": BAD, "No recipe": BAD,
+                "Not downloaded": BAD, "Not validated": BAD}
 
 
 def _duration(seconds: float | None) -> str:

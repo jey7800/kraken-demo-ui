@@ -376,8 +376,13 @@ async function onDoc(e, run) {
     paintMeters();
     if (run.filed <= 14 || run.filed % 5 === 0) fly(e.label || "Document");
   }
+  else {
+    run.failed = (run.failed || 0) + 1;
+    if (e.reason) run.reason = `${e.status}: ${e.reason}`;
+  }
   setCell(run.id, "found", run.total);
-  sub(`${run.filed} of ${run.total} filed${run.isNew ? `: ${run.isNew} new, ${run.filed - run.isNew} already on file` : ", all already on file"}.`);
+  const failed = run.failed ? ` ${run.failed} not downloaded${run.reason ? ` (${run.reason})` : ""}.` : "";
+  sub(`${run.filed} of ${run.total} filed${run.isNew ? `: ${run.isNew} new` : ""}.${failed}`);
   await sleep(busy() ? 25 : (e.index <= 14 ? 160 : 50));
 }
 
@@ -398,6 +403,7 @@ async function runEnd(e, run) {
       "Sign-in refused": ["Sign-in failed: nothing was collected.", r.notes || ""],
       Degraded: ["The site changed and no repair passed the checks.", "The previous recipe stays active and the team is alerted."],
       "No recipe": ["No recipe for this site yet.", "Run it with Re-learn first."],
+      "Not downloaded": ["The documents were found, but none could be downloaded.", r.notes || ""],
       "Not validated": ["The new recipe did not pass the checks.", "Nothing was activated: Kraken never uses a recipe it could not verify."],
       "Over budget": ["The AI budget for this run was reached.", "Kraken stops: costs are capped on every run."],
     }[r.status_label] || ["Something went wrong on this site.", r.notes || ""];

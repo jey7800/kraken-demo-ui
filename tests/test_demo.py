@@ -98,6 +98,32 @@ def test_replay_steps_from_requests_and_downloads() -> None:
     assert doc["label"] == "Annual report FY2025" and t.pages == 1
 
 
+def test_failed_downloads_carry_their_reason() -> None:
+    t, out = _tracker()
+    t.known(True, False)
+    t.on_event(Event("document_downloaded", "s", "[1/3] blocked: https://s.example/a.pdf (HTTP 403 from the proxy)",
+                     {"status": "blocked", "index": 1, "total": 3}))
+    doc = next(e for e in out if e["type"] == "doc")
+    assert doc["reason"] == "HTTP 403 from the proxy" and doc["label"] == "Document"
+
+
+def test_listed_but_nothing_saved_is_not_done(tmp_path: Path) -> None:
+    from types import SimpleNamespace
+
+    from kdemo.config import DemoConfig
+    from kdemo.driver import SiteRunner
+
+    t, out = _tracker()
+    t.known(True, False)
+    failed = SimpleNamespace(status="blocked", reason="HTTP 403")
+    result = SimpleNamespace(status="ok", errors=[], warnings=[], documents=[1, 2], downloads=[failed, failed],
+                             health=None)
+    runner = SiteRunner(DemoConfig(root=tmp_path).resolved(), lambda _e: None)
+    res = runner._finish(t, t.row, 0.0, result, learning=False)
+    assert res["status_label"] == "Not downloaded" and "blocked: HTTP 403" in res["notes"]
+    assert res["found"] == 2 and res["files"] == 0
+
+
 def test_repair_path_and_ai_links() -> None:
     t, out = _tracker()
     t.start()

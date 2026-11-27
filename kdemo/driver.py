@@ -177,12 +177,14 @@ class Tracker:
                 self.through("download")
             status = str(data.get("status", ""))
             self.downloads[status] = self.downloads.get(status, 0) + 1
+            reason = re.search(r"\((.*)\)\s*$", event.message) if status not in FILED else None
             self.emit(
                 "doc",
                 index=int(data.get("index", 0)),
                 total=total,
                 status=status,
                 label=self.doc_label(event.message, status),
+                reason=reason.group(1)[:200] if reason else "",
             )
         elif event.kind in ("blocked", "unauthorized", "budget_exceeded", "llm_error"):
             self.emit("notice", kind=event.kind, text=event.message[:200])
@@ -357,6 +359,13 @@ class SiteRunner:
             return self._end(tracker, row, started, label, notes=notes, result=result)
         if status == "degraded":
             return self._end(tracker, row, started, "Degraded", notes=notes, result=result)
+        downloads = getattr(result, "downloads", []) or []
+        if result.documents and downloads and not any(d.status in FILED for d in downloads):
+            # Listed but not one file saved: never shown as a success.
+            failed = next((d for d in downloads if d.status not in FILED), None)
+            why = f"{failed.status}: {failed.reason}" if failed is not None else ""
+            return self._end(tracker, row, started, "Not downloaded",
+                             notes="; ".join(x for x in [why, notes] if x)[:400], result=result)
         tracker.through("store")
         label = "Learned" if learning else ("Repaired" if tracker.repaired else "Done")
         return self._end(tracker, row, started, label, notes=notes, result=result)
