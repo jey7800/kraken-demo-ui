@@ -10,6 +10,28 @@
   }
   const $ = (id) => document.getElementById(id);
 
+  /* Scale the 1920 px canvas to the window, like a slide. A 16:10 window keeps the full
+     width and gets a taller canvas (more room for the diagram); a window wider than 16:9
+     keeps 1080 px of height and is centred. 1920x1200 at 150% gives a 1280 px wide
+     window: scale 2/3, so the page shows exactly the pixels of 1920x1080 at 100%. */
+  const W = 1920, H = 1080;
+  const FIT = (window.FIT = { s: 1, ox: 0 });
+  function fit() {
+    const app = document.querySelector(".app");
+    let s = window.innerWidth / W, h = window.innerHeight / s, ox = 0;
+    if (h < H) { s = window.innerHeight / H; h = H; ox = (window.innerWidth - W * s) / 2; }
+    app.style.height = h + "px";
+    app.style.transform = `translate(${ox}px, 0) scale(${s})`;
+    FIT.s = s; FIT.ox = ox;
+  }
+  window.addEventListener("resize", fit);
+  fit();
+  /* A screen rectangle in canvas coordinates. */
+  function toCanvas(r) {
+    const left = (r.left - FIT.ox) / FIT.s, top = r.top / FIT.s, width = r.width / FIT.s, height = r.height / FIT.s;
+    return { left, top, width, height, right: left + width, bottom: top + height };
+  }
+
   /* seabed contours, the only decoration */
   (function contours() {
     const svg = $("contours");
@@ -159,7 +181,7 @@
     aiOff() { $("orb").classList.remove("calling"); document.querySelectorAll(".fil").forEach((n) => n.classList.remove("lit")); $("tok").textContent = ""; },
     tok(text) { $("tok").textContent = text; },
     centerOf(id) {
-      const r = node(id).querySelector(".ring").getBoundingClientRect();
+      const r = toCanvas(node(id).querySelector(".ring").getBoundingClientRect());
       return { x: r.left + r.width / 2, y: r.top + r.height / 2, r };
     },
   };
