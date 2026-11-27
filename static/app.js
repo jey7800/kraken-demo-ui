@@ -454,7 +454,12 @@ function connect() {
   const es = new EventSource("/events");
   es.onopen = () => { $("conn").classList.add("on"); refresh(); };
   es.onerror = () => { $("conn").classList.remove("on"); };
-  es.onmessage = (m) => { try { push(JSON.parse(m.data)); } catch (err) { console.error(err); } };
+  es.onmessage = (m) => {
+    let e;
+    try { e = JSON.parse(m.data); } catch (err) { console.error(err); return; }
+    push(e);
+    if (window.Library) Library.onEvent(e);  // the library follows runs live, unpaced
+  };
 }
 async function refresh() {
   const st = await fetch("/api/state").then((r) => r.json());
@@ -493,12 +498,15 @@ $("m-film").addEventListener("click", () => setSource("film"));
 function showPage(name) {
   document.querySelectorAll(".tab").forEach((t) => t.setAttribute("aria-current", t.dataset.page === name ? "page" : "false"));
   $("page-mission").hidden = name !== "mission";
+  $("page-library").hidden = name !== "library";
   $("page-why").hidden = name !== "why";
   if (name === "why" && window.Why) Why.show();
+  if (name === "library" && window.Library) Library.show();
 }
 document.querySelectorAll(".tab").forEach((t) => t.addEventListener("click", () => showPage(t.dataset.page)));
 document.addEventListener("keydown", (ev) => {
-  if (ev.target.closest("input, textarea")) return;
+  if (ev.target.closest("input, textarea") || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+  if (ev.key === " " && !$("page-library").hidden) return;
   if (ev.key === " ") { ev.preventDefault(); S.paused = !S.paused; paintSpeed(); }
   else if (ev.key === "+" || ev.key === "=") setSpeed(1);
   else if (ev.key === "-") setSpeed(-1);
@@ -506,7 +514,8 @@ document.addEventListener("keydown", (ev) => {
   else if (ev.key === "Escape") $("help").classList.remove("on");
   else if (ev.key.toLowerCase() === "f") setSource(S.source === "live" ? "film" : "live");
   else if (ev.key === "1") showPage("mission");
-  else if (ev.key === "2") showPage("why");
+  else if (ev.key === "2") showPage("library");
+  else if (ev.key === "3") showPage("why");
 });
 $("keys").addEventListener("click", () => $("help").classList.toggle("on"));
 $("help").addEventListener("click", () => $("help").classList.remove("on"));

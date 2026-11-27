@@ -231,7 +231,7 @@ td.actions .mini + .mini { margin-left: 8px; }
   .edge.lit, .fil.lit, .st.active .halo, .orb.calling .glow, .status.run i { animation: none; }
 }
 
-/* ================= Page 2: why AI changes everything ================= */
+/* ================= Page 3: why AI changes everything ================= */
 #page-why { overflow: hidden; }
 .why { height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 18px; padding: 20px 32px 22px; }
 .why-head { display: flex; align-items: flex-end; gap: 32px; }

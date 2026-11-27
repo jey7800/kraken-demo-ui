@@ -1,6 +1,6 @@
 """Minimal .xlsx reader and writer on the standard library (zipfile + XML).
 
-Reading: the first worksheet, cell values only (shared strings, inline strings,
+Reading: worksheets, cell values only (shared strings, inline strings,
 numbers, booleans). Writing: one or more sheets with a small fixed set of styles,
 frozen header row, column widths and an autofilter. Nothing else of the format.
 """
@@ -58,6 +58,11 @@ def _text(node: ET.Element | None) -> str:
 
 def read_first_sheet(data: bytes) -> tuple[str, list[list[Cell]]]:
     """The name and rows of the first worksheet (a row is a list of cell values)."""
+    return read_sheets(data, limit=1)[0]
+
+
+def read_sheets(data: bytes, limit: int | None = None) -> list[tuple[str, list[list[Cell]]]]:
+    """Name and rows of each worksheet, in workbook order (at most ``limit`` of them)."""
     try:
         zf = zipfile.ZipFile(io.BytesIO(data))
     except zipfile.BadZipFile as exc:
@@ -68,20 +73,29 @@ def read_first_sheet(data: bytes) -> tuple[str, list[list[Cell]]]:
             rels = ET.fromstring(zf.read("xl/_rels/workbook.xml.rels"))
         except KeyError as exc:
             raise XlsxError("not an .xlsx workbook") from exc
-        sheet = workbook.find("m:sheets/m:sheet", NS)
-        if sheet is None:
+        sheets = workbook.findall("m:sheets/m:sheet", NS)
+        if not sheets:
             raise XlsxError("the workbook has no sheet")
-        rid = sheet.get(f"{{{REL_NS}}}id")
-        target = next(
-            (r.get("Target", "") for r in rels.findall("r:Relationship", PKG_REL) if r.get("Id") == rid),
-            "",
-        )
-        path = target.lstrip("/") if target.startswith("/") else "xl/" + target
+        targets = {r.get("Id"): r.get("Target", "") for r in rels.findall("r:Relationship", PKG_REL)}
         shared: list[str] = []
         if "xl/sharedStrings.xml" in zf.namelist():
             sst = ET.fromstring(zf.read("xl/sharedStrings.xml"))
             shared = [_text(si) for si in sst.findall("m:si", NS)]
-        root = ET.fromstring(zf.read(path))
+        out: list[tuple[str, list[list[Cell]]]] = []
+        for sheet in sheets[:limit]:
+            target = targets.get(sheet.get(f"{{{REL_NS}}}id"), "")
+            path = target.lstrip("/") if target.startswith("/") else "xl/" + target
+            try:
+                root = ET.fromstring(zf.read(path))
+            except KeyError:
+                continue  # a chart sheet or a broken link: no cells to read
+            out.append((sheet.get("name", f"Sheet{len(out) + 1}"), _rows(root, shared)))
+    if not out:
+        raise XlsxError("the workbook has no worksheet")
+    return out
+
+
+def _rows(root: ET.Element, shared: list[str]) -> list[list[Cell]]:
     rows: list[list[Cell]] = []
     for row in root.findall("m:sheetData/m:row", NS):
         values: list[Cell] = []
@@ -95,7 +109,7 @@ def read_first_sheet(data: bytes) -> tuple[str, list[list[Cell]]]:
         while len(rows) < index:
             rows.append([])
         rows.append(values)
-    return sheet.get("name", "Sheet1"), rows
+    return rows
 
 
 def _cell_value(c: ET.Element, shared: list[str]) -> Cell:

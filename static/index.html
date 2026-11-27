@@ -6,6 +6,7 @@
 <title>Kraken 2.0 mission control</title>
 <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
 <link rel="stylesheet" href="/static/app.css">
+<link rel="stylesheet" href="/static/library.css">
 </head>
 <body>
 <svg id="contours" aria-hidden="true"></svg>
@@ -17,6 +18,7 @@
     </div>
     <nav class="tabs" aria-label="Pages">
       <button class="tab" data-page="mission" aria-current="page">Mission control</button>
+      <button class="tab" data-page="library">Document library<span class="tab-live" id="tab-live" hidden></span></button>
       <button class="tab" data-page="why">Why AI changes everything</button>
     </nav>
     <div class="spacer"></div>
@@ -106,7 +108,43 @@
     </section>
   </main>
 
-  <!-- ============ Page 2: why AI changes everything ============ -->
+  <!-- ============ Page 2: document library ============ -->
+  <main class="page" id="page-library" hidden>
+    <div class="lib">
+      <header class="lib-head">
+        <div class="lib-title">
+          <h1>Document library</h1>
+          <p class="lib-lede" id="lib-lede">Every file Kraken filed, by issuer and year.</p>
+        </div>
+        <div class="lib-live" id="lib-live" hidden><i></i><span id="lib-live-text"></span></div>
+        <label class="lib-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="lib-q" type="search" placeholder="Search issuer, title, type, period…" autocomplete="off" spellcheck="false">
+          <kbd>/</kbd>
+        </label>
+      </header>
+      <div class="lib-body">
+        <nav class="lib-panel lib-tree" id="lib-tree" aria-label="Folders"></nav>
+        <section class="lib-panel lib-list" aria-label="Documents">
+          <div class="list-head" id="list-head"></div>
+          <div class="list-scroll" id="lib-list"></div>
+        </section>
+        <section class="lib-panel lib-work" id="lib-work" aria-label="Selected document"></section>
+        <div class="viewer" id="viewer" aria-hidden="true">
+          <div class="viewer-bar">
+            <div class="viewer-title"><b id="viewer-title"></b><span id="viewer-sub"></span></div>
+            <div class="viewer-tabs" id="viewer-tabs"></div>
+            <button class="viewer-x" id="viewer-x" title="Close (Esc)" aria-label="Close the document">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <div class="viewer-body" id="viewer-body"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ Page 3: why AI changes everything ============ -->
   <main class="page" id="page-why" hidden></main>
 
 <div id="flyers"></div>
@@ -116,7 +154,8 @@
   <dt>Space</dt><dd>Pause or resume the animation</dd>
   <dt>+ and −</dt><dd>Speed up or slow down</dd>
   <dt>F</dt><dd>Switch between live and recorded runs</dd>
-  <dt>1 and 2</dt><dd>Show page 1 or page 2</dd>
+  <dt>1, 2, 3</dt><dd>Mission control, document library, why AI</dd>
+  <dt>/ and ↑ ↓</dt><dd>Library: search, previous or next document</dd>
   <dt>?</dt><dd>Show this help</dd>
 </dl></div></div>
 </div>
@@ -124,5 +163,6 @@
 <script src="/static/flow.js"></script>
 <script src="/static/app.js"></script>
 <script src="/static/why.js"></script>
+<script src="/static/library.js"></script>
 </body>
 </html>

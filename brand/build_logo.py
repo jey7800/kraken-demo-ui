@@ -372,7 +372,7 @@ def main() -> None:
         print("wrote", name)
     # The demo UI serves only static/: keep its copies in sync.
     static = OUT.parent / "static"
-    for name in ("kraken-lockup-dark.svg", "favicon.svg"):
+    for name in ("kraken-lockup-dark.svg", "kraken-mark-dark.svg", "favicon.svg"):
         (static / name).write_text(files[name], encoding="utf-8")
         print("wrote static/" + name)
 

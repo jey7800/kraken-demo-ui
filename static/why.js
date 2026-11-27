@@ -1,5 +1,5 @@
 "use strict";
-/* Page 2: a website changes. A classic scraper breaks; Kraken detects, repairs, checks.
+/* Page 3: a website changes. A classic scraper breaks; Kraken detects, repairs, checks.
    The Kraken side replays a real repair recorded from Retrievr's tests (films/stories.json). */
 (function () {
   const $ = (id) => document.getElementById(id);

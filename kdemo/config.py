@@ -21,6 +21,23 @@ class Prices:
 
 
 @dataclass
+class LibrarySettings:
+    """The document library page: summaries and chat on the files filed."""
+
+    model: str = ""
+    """Model for summaries and chat (empty: Retrievr's ``model_small``)."""
+    max_chars: int = 400_000
+    """Document text sent to the AI, at most (about 100,000 tokens); longer documents are cut."""
+    cache_dir: Path | None = None
+    """Extracted texts, summaries and answers (default: ``<data_dir>/library``)."""
+    warm: bool = True
+    """Extract every document's text in the background at start (paused during runs)."""
+    reasoning_effort: str = "low"
+    """Sent as ``reasoning_effort`` with chat questions (answers in about a second instead
+    of two); empty: not sent. Dropped automatically when the endpoint refuses it."""
+
+
+@dataclass
 class DemoConfig:
     root: Path
     """Folder of demo.toml: relative paths start here."""
@@ -47,6 +64,7 @@ class DemoConfig:
     prices: Prices = field(default_factory=Prices)
     film_max_gap_s: float = 1.5
     """Longest pause kept between two events when a recorded run is played."""
+    library: LibrarySettings = field(default_factory=lambda: LibrarySettings())
 
     @classmethod
     def load(cls, path: Path | None) -> DemoConfig:
@@ -69,6 +87,14 @@ class DemoConfig:
                 setattr(cfg, key, bool(raw[key]))
         if "film_max_gap_s" in raw:
             cfg.film_max_gap_s = float(raw["film_max_gap_s"])
+        lib = raw.get("library", {})
+        cfg.library = LibrarySettings(
+            model=str(lib.get("model", "")),
+            max_chars=int(lib.get("max_chars", LibrarySettings.max_chars)),
+            cache_dir=Path(lib["cache_dir"]) if lib.get("cache_dir") else None,
+            warm=bool(lib.get("warm", True)),
+            reasoning_effort=str(lib.get("reasoning_effort", LibrarySettings.reasoning_effort)),
+        )
         cost = raw.get("cost", {})
         cfg.prices = Prices(
             float(cost.get("input_per_million", Prices.input_per_million)),
@@ -86,6 +112,7 @@ class DemoConfig:
         self.env_file = fix(self.env_file)
         self.data_dir = fix(self.data_dir) or self.root / "data"
         self.films_dir = fix(self.films_dir) or self.root / "films"
+        self.library.cache_dir = fix(self.library.cache_dir) or self.data_dir / "library"
         return self
 
 

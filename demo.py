@@ -71,6 +71,7 @@ def main(argv: list[str] | None = None) -> int:
         pass
     finally:
         server.server_close()
+        app.close()
     return 0
 
 

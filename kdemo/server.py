@@ -19,12 +19,15 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote, urlsplit
+from urllib.parse import parse_qs, quote, urlsplit
 
 from kdemo.adapter import PortalAdapter
+from kdemo.ai import AIError, DocAI, Endpoint, endpoint_from_settings
 from kdemo.config import DemoConfig
 from kdemo.driver import SiteRunner
 from kdemo.films import FilmLibrary, Recorder, play
+from kdemo.library import LibDoc, Source, TextStore, TextUnavailableError, scan, sheet_preview, warm
+from kdemo.observe import NetworkTransport
 from kdemo.sheet import Sheet, SheetError, export, read_sheet
 
 log = logging.getLogger("kdemo")
@@ -76,6 +79,16 @@ class App:
         self._lock = threading.Lock()
         cfg.data_dir.mkdir(parents=True, exist_ok=True)
         self._restore()
+        lib = cfg.library
+        cache = lib.cache_dir or cfg.data_dir / "library"
+        self.texts = TextStore(cache / "text", worker_process=True)
+        self.ai = DocAI(folder=cache, texts=self.texts, endpoint=self._endpoint, prices=cfg.prices,
+                        ai_name=cfg.ai_name, max_chars=lib.max_chars)
+        self._names: dict[str, str] | None = None
+        self._private: set[str] = set()
+        self._stop = threading.Event()
+        if lib.warm:
+            threading.Thread(target=self._warm, name="library-warm", daemon=True).start()
 
     # -- persistence -------------------------------------------------------------------
 
@@ -109,6 +122,7 @@ class App:
             self.sheet = sheet
             self.results = {}
             self._save_results()
+            self._names = None
         self.bus.publish({"type": "sheet", "sheet": sheet.to_json()})
         return sheet
 
@@ -164,6 +178,7 @@ class App:
                 with self._lock:
                     self.results[row.id] = result
                     self._save_results()
+        self._names = None  # a learned site may file under a new issuer folder
         self.bus.publish({"type": "job_end", "cancelled": self._cancel.is_set(), "films": self.films.available()})
 
     def _run_live(self, row: Any, relearn: bool) -> dict[str, Any]:
@@ -203,6 +218,139 @@ class App:
             subprocess.Popen(["open" if sys.platform == "darwin" else "xdg-open", str(folder)])  # noqa: S603
         return None
 
+    # -- document library --------------------------------------------------------------
+
+    def _runner(self) -> SiteRunner:
+        return SiteRunner(self.cfg, self.bus.publish, self.adapter)
+
+    def _issuer_names(self) -> dict[str, str]:
+        """Issuer folder -> name from the parameters file (row id and the recipe's issuer)."""
+        if self._names is not None:
+            return self._names
+        names: dict[str, str] = {}
+        private: set[str] = set()
+        if self.sheet is not None:
+            from retrievr import Retrievr
+
+            runner = self._runner()
+            for row in self.sheet.rows:
+                keys = {row.id}
+                try:
+                    settings = runner.settings(fresh_ai=False, row=row)
+                    recipe = Retrievr(settings=settings).store.active_recipe(row.id)
+                    if recipe is not None:
+                        keys.add(recipe.issuer)
+                except Exception:
+                    log.debug("no recipe read for %s", row.id, exc_info=True)
+                for key in keys:
+                    names.setdefault(key, row.name)
+                    if row.private:
+                        private.add(key)
+        self._names, self._private = names, private
+        return names
+
+    def _sources(self) -> list[Source]:
+        names = self._issuer_names()
+        runner = self._runner()
+        out = Path(runner.settings(fresh_ai=False).output.output_dir)
+        sources = [Source(out, private=False, exclude=set(self._private))]
+        dirs = getattr(self.adapter, "retrievr_dirs", None)
+        if self.sheet is not None and dirs is not None:
+            for row in self.sheet.rows:
+                if not row.private:
+                    continue
+                keys = {k for k, v in names.items() if v == row.name and k in self._private}
+                try:
+                    sources.append(Source(Path(dirs(row)[1]), private=True, issuers=keys or {row.id}))
+                except Exception:
+                    log.warning("private folder of %s not listed", row.id)
+        return sources
+
+    def library_docs(self) -> list[LibDoc]:
+        return scan(self._sources(), self._issuer_names())
+
+    def find_doc(self, doc_id: str) -> LibDoc | None:
+        return next((d for d in self.library_docs() if d.id == doc_id), None)
+
+    def library(self) -> dict[str, Any]:
+        docs = self.library_docs()
+        issuers: dict[str, dict[str, Any]] = {}
+        rows = []
+        for d in docs:
+            item = issuers.setdefault(d.issuer, {"key": d.issuer, "name": d.issuer_name, "private": d.private,
+                                                 "count": 0, "size": 0, "years": {}})
+            item["count"] += 1
+            item["size"] += d.size
+            year = str(d.fiscal_year or "Other")
+            item["years"][year] = item["years"].get(year, 0) + 1
+            j = d.to_json(self.cfg.ai_name)
+            info = self.texts.info(d) if d.readable else None
+            j["summary"] = d.readable and self.ai.has_summary(d)
+            j["pages"] = info["pages"] if info else None
+            rows.append(j)
+        return {
+            "docs": rows,
+            "issuers": sorted(issuers.values(), key=lambda i: i["name"].lower()),
+            "ai_name": self.cfg.ai_name,
+            "model": _model_label(self.cfg.library.model or self._default_model()),
+            "running": self.running,
+        }
+
+    def _default_model(self) -> str:
+        try:
+            return str(self._runner().settings(fresh_ai=False).llm.model_small)
+        except Exception:
+            return ""
+
+    def library_doc(self, doc_id: str) -> dict[str, Any] | None:
+        doc = self.find_doc(doc_id)
+        if doc is None:
+            return None
+        return {
+            "doc": doc.to_json(self.cfg.ai_name),
+            "summary": self.ai.cached_summary(doc) if doc.readable else None,
+            "text": self.texts.info(doc) if doc.readable else None,
+        }
+
+    def _endpoint(self) -> Endpoint:
+        settings = self._runner().settings(fresh_ai=False)
+        probe = self.adapter.llm_transport() if self.adapter is not None else None
+        host = probe is not None
+        pending = [probe] if probe is not None else []
+
+        def transport() -> Any:
+            if pending:
+                return pending.pop()
+            if host and self.adapter is not None:
+                return self.adapter.llm_transport() or NetworkTransport()
+            return NetworkTransport()
+
+        return endpoint_from_settings(settings, self.cfg.library.model, transport, host,
+                                      chat_effort=self.cfg.library.reasoning_effort)
+
+    def _warm(self) -> None:
+        self._stop.wait(3.0)  # let the page load first
+        try:
+            warm(self.library_docs(), self.texts, paused=lambda: self.running, stop=self._stop)
+        except Exception:
+            log.exception("library warm-up stopped")
+
+    def close(self) -> None:
+        self._stop.set()
+        self.texts.close()
+
+    def open_doc(self, doc_id: str) -> str | None:
+        doc = self.find_doc(doc_id)
+        if doc is None:
+            return "unknown document"
+        if doc.private:
+            return "private portal documents are not opened in the demo"
+        if os.name == "nt":
+            os.startfile(doc.path)  # noqa: S606 - a file of the library, opened with its app
+        else:
+            subprocess.Popen(["open" if sys.platform == "darwin" else "xdg-open", str(doc.path)])  # noqa: S603
+        return None
+
     # -- page 2 ------------------------------------------------------------------------
 
     def stories(self) -> dict[str, Any]:
@@ -217,6 +365,11 @@ class App:
                 out["learn"] = {"name": film.get("row", {}).get("name", key), **end["result"]}
                 break
         return out
+
+
+def _model_label(model: str) -> str:
+    """``openai/gpt-6-luna`` -> ``gpt-6-luna``."""
+    return model.rsplit("/", 1)[-1]
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -270,6 +423,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(app.state())
         if path == "/api/stories":
             return self._json(app.stories())
+        if path.startswith("/api/library"):
+            return self._library_get(path, parse_qs(urlsplit(self.path).query).get("id", [""])[0])
         if path == "/api/export":
             if app.sheet is None:
                 return self._json({"error": "no parameters file loaded"}, 400)
@@ -309,6 +464,13 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/stop":
                 app.stop()
                 return self._json({"ok": True})
+            if path == "/api/library/summary":
+                return self._summary(payload)
+            if path == "/api/library/chat":
+                return self._chat(payload)
+            if path == "/api/library/open":
+                error = app.open_doc(str(payload.get("id", "")))
+                return self._json({"error": error} if error else {"ok": True}, 404 if error else 200)
             if path == "/api/speed":
                 app.speed = min(8.0, max(0.25, float(payload.get("speed", 1))))
                 return self._json({"speed": app.speed})
@@ -317,6 +479,69 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError as exc:
             return self._json({"error": str(exc)}, 400)
         self.send_error(HTTPStatus.NOT_FOUND)
+        return None
+
+    # -- library -----------------------------------------------------------------------
+
+    def _library_get(self, path: str, doc_id: str) -> None:
+        app = self.app
+        if path == "/api/library":
+            return self._json(app.library())
+        if path == "/api/library/doc":
+            info = app.library_doc(doc_id)
+            return self._json(info) if info else self._json({"error": "unknown document"}, 404)
+        doc = app.find_doc(doc_id)
+        if doc is None:
+            return self._json({"error": "unknown document"}, 404)
+        if doc.private:
+            return self._json({"error": "private portal documents are not shown in the demo"}, 403)
+        if path == "/api/library/sheet":
+            try:
+                return self._json({"sheets": sheet_preview(doc)})
+            except TextUnavailableError as exc:
+                return self._json({"error": str(exc)}, 422)
+        if path == "/api/library/file":
+            body = doc.path.read_bytes()
+            ctype = mimetypes.guess_type(doc.path.name)[0] or "application/octet-stream"
+            self.send_response(200)
+            self.send_header("Content-Type", ctype)
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Content-Disposition", "inline; filename*=UTF-8''" + quote(doc.path.name))
+            self.send_header("Cache-Control", "private, max-age=3600")
+            self.end_headers()
+            self.wfile.write(body)
+            return None
+        self.send_error(HTTPStatus.NOT_FOUND)
+        return None
+
+    def _summary(self, payload: dict[str, Any]) -> None:
+        doc = self.app.find_doc(str(payload.get("id", "")))
+        if doc is None:
+            return self._json({"error": "unknown document"}, 404)
+        try:
+            data = self.app.ai.summary(doc, refresh=bool(payload.get("refresh")), offline=bool(payload.get("offline")))
+        except (AIError, TextUnavailableError) as exc:
+            return self._json({"error": str(exc)}, 502 if isinstance(exc, AIError) else 422)
+        return self._json(data)
+
+    def _chat(self, payload: dict[str, Any]) -> None:
+        doc = self.app.find_doc(str(payload.get("id", "")))
+        if doc is None:
+            return self._json({"error": "unknown document"}, 404)
+        history = [m for m in payload.get("messages") or [] if isinstance(m, dict)]
+        self.send_response(200)
+        self.send_header("Content-Type", "application/x-ndjson; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        events = self.app.ai.chat(doc, history, offline=bool(payload.get("offline")))
+        try:
+            for event in events:
+                self.wfile.write((json.dumps(event, ensure_ascii=False) + "\n").encode())
+                self.wfile.flush()
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+            pass  # the page stopped the answer
+        finally:
+            events.close()
         return None
 
     def _events(self) -> None:
@@ -343,8 +568,13 @@ class Handler(BaseHTTPRequestHandler):
             self.app.bus.unsubscribe(q)
 
 
+class DemoServer(ThreadingHTTPServer):
+    daemon_threads = True
+    request_queue_size = 64
+    """The page opens a dozen connections at once; Windows resets those beyond the
+    listen backlog (5 by default), and a script that fails to load breaks a page."""
+
+
 def serve(app: App) -> ThreadingHTTPServer:
     handler = type("BoundHandler", (Handler,), {"app": app})
-    server = ThreadingHTTPServer((app.cfg.host, app.cfg.port), handler)
-    server.daemon_threads = True
-    return server
+    return DemoServer((app.cfg.host, app.cfg.port), handler)
