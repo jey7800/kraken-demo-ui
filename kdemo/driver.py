@@ -287,6 +287,18 @@ class SiteRunner:
                 except Exception:
                     pass
 
+    def files_dir(self, row: SiteRow) -> Path | None:
+        """The folder holding the files filed for this row (``<output>/<issuer>``), or
+        None when nothing was filed yet."""
+        settings = self.settings(fresh_ai=False, row=row)
+        out = Path(settings.output.output_dir).resolve()
+        recipe = Retrievr(settings=settings).store.active_recipe(row.id)
+        for name in ([recipe.issuer] if recipe is not None else []) + [row.id]:
+            folder = (out / name).resolve()
+            if out in folder.parents and folder.is_dir() and any(folder.rglob("*.*")):
+                return folder
+        return None
+
     def forget_files(self, row: SiteRow) -> int:
         """Delete the files Retrievr filed for this row's issuer in the demo's output folder
         (read from its manifest). Retrievr then downloads them again: a file missing from

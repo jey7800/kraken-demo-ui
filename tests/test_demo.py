@@ -166,6 +166,21 @@ def test_forget_files_deletes_only_this_issuer(tmp_path: Path) -> None:
     assert (out / "other/2025/b.pdf").exists() and (tmp_path / "outside.pdf").exists()
 
 
+def test_files_dir_only_when_files_exist(tmp_path: Path) -> None:
+    from kdemo.config import DemoConfig
+    from kdemo.driver import SiteRunner
+
+    out = tmp_path / "downloads"
+    cfg = DemoConfig(root=tmp_path, state_dir=tmp_path / "state", output_dir=out).resolved()
+    row = SiteRow("s", "Site", "https://s.example", False, [], "", False, 2)
+    runner = SiteRunner(cfg, lambda _e: None)
+    assert runner.files_dir(row) is None
+    (out / "s" / "2025").mkdir(parents=True)
+    assert runner.files_dir(row) is None  # an empty folder shows nothing
+    (out / "s" / "2025" / "a.pdf").write_bytes(b"%PDF-")
+    assert runner.files_dir(row) == (out / "s").resolve()
+
+
 def test_failed_runs_are_not_recorded(tmp_path: Path) -> None:
     rec = Recorder({"id": "s"})
     rec.add({"type": "run_end", "row": "s", "result": {"status_label": "Blocked"}})

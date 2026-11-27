@@ -9,6 +9,7 @@ const fmtEur = (v, d) => {
   return "€" + v.toLocaleString("en-GB", { minimumFractionDigits: digits, maximumFractionDigits: digits });
 };
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const FOLDER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
 const LOCK = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5.5" width="8" height="5.5" rx="1.2" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>';
 
 const S = {
@@ -90,7 +91,7 @@ function renderTable() {
       <td class="force ${row.force_learn ? "yes" : ""}">${row.force_learn ? "Yes" : "No"}</td>
       <td data-c="status"></td><td data-c="found"></td><td data-c="dl"></td>
       <td data-c="ai"></td><td data-c="cost"></td><td data-c="time"></td><td data-c="health"></td>
-      <td class="actions"><button class="mini" data-act="run">Run</button><button class="mini relearn" data-act="relearn">Re-learn</button></td>`;
+      <td class="actions"><button class="mini" data-act="run">Run</button><button class="mini relearn" data-act="relearn">Re-learn</button><button class="mini files" data-act="files" title="Open the folder of downloaded files">${FOLDER}Files</button></td>`;
     tbody.appendChild(tr);
     paintResult(row.id, S.results[row.id]);
   }
@@ -161,6 +162,7 @@ $("rows").addEventListener("click", (ev) => {
   const btn = ev.target.closest("button[data-act]");
   if (!btn) return;
   const id = btn.closest("tr").id.slice(4);
+  if (btn.dataset.act === "files") { post("/api/open", { id }); return; }
   runRows([id], btn.dataset.act === "relearn");
 });
 $("runall").addEventListener("click", () => runRows([], false));

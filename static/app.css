@@ -190,6 +190,8 @@ td.aiv { color: var(--good); }
 .mini { font: 600 13px var(--body); border-radius: 8px; padding: 5px 12px; cursor: pointer; border: 1px solid var(--line); background: var(--navy-2); color: var(--text); }
 .mini.relearn { color: var(--ai); border-color: rgba(255, 77, 109, .4); background: rgba(255, 77, 109, .07); }
 .mini:disabled { opacity: .35; cursor: default; }
+.mini.files { display: inline-flex; align-items: center; gap: 6px; color: var(--done); border-color: rgba(143, 180, 255, .4); background: rgba(77, 141, 255, .08); }
+.mini.files svg { width: 14px; height: 14px; }
 td.actions { text-align: right; }
 td.actions .mini + .mini { margin-left: 8px; }
 

@@ -9,7 +9,10 @@ from __future__ import annotations
 import json
 import logging
 import mimetypes
+import os
 import queue
+import subprocess
+import sys
 import threading
 import traceback
 from http import HTTPStatus
@@ -186,6 +189,20 @@ class App:
             speed=lambda: self.speed, cancelled=self._cancel.is_set, max_gap_s=self.cfg.film_max_gap_s,
         )
 
+    def open_files(self, row_id: str) -> str | None:
+        """Show the row's downloaded files in the file manager; returns an error message."""
+        row = next((r for r in self.sheet.rows if r.id == row_id), None) if self.sheet else None
+        if row is None:
+            return "unknown row"
+        folder = SiteRunner(self.cfg, self.bus.publish, self.adapter).files_dir(row)
+        if folder is None:
+            return f"No files downloaded yet for {row.name}: run it first."
+        if os.name == "nt":
+            os.startfile(folder)  # noqa: S606 - a folder we computed, opened in Explorer
+        else:
+            subprocess.Popen(["open" if sys.platform == "darwin" else "xdg-open", str(folder)])  # noqa: S603
+        return None
+
     # -- page 2 ------------------------------------------------------------------------
 
     def stories(self) -> dict[str, Any]:
@@ -286,6 +303,9 @@ class Handler(BaseHTTPRequestHandler):
                     source="film" if payload.get("source") == "film" else "live",
                 )
                 return self._json({"error": error} if error else {"ok": True}, 409 if error else 202)
+            if path == "/api/open":
+                error = app.open_files(str(payload.get("id", "")))
+                return self._json({"error": error} if error else {"ok": True}, 404 if error else 200)
             if path == "/api/stop":
                 app.stop()
                 return self._json({"ok": True})
